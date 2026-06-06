@@ -1,0 +1,80 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f0f0f;
+    color:white;
+    text-align:center;
+}
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        #0f0f0f,
+        #2d1b1b,
+        #6d214f
+    );
+}
+
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.message,
+.gallery,
+.countdown,
+.love{
+    padding:60px 20px;
+}
+
+.gallery img{
+    width:250px;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    margin:10px;
+}
+
+.card{
+    background: white;
+    color: black;
+    padding: 20px;
+    margin: 10px auto;
+    width: 250px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+.final-question{
+    text-align:center;
+    padding:100px 20px;
+}
+
+#giftBtn,
+#yesBtn,
+#noBtn{
+
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:15px;
+}
+
+#yesBtn{
+    background:#ff69b4;
+    color:white;
+}
+
+#noBtn{
+    position:absolute;
+}
