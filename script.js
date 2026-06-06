@@ -90,7 +90,7 @@ if(yesBtn){
             <h1>❤️ I Knew It ❤️</h1>
 
             <h2>
-                Happy Birthday My Love 🎂
+                Happy Birthday My Best Friend ,My Phillosopher, My Guide🎂
             </h2>
 
             <p>
