@@ -6,27 +6,25 @@ function checkBirthday() {
     const month = today.getMonth() + 1;
 
     if (day === 22 && month === 8) {
-
         window.location.href = "surprise.html";
-
     } else {
-
         alert("🎁 This surprise is locked until 22 August ❤️");
     }
 }
 
-// Set birthday date
-const birthday = new Date("22 August, 2026");
+// 🎂 Birthday date (SAFE FORMAT)
+const birthday = new Date(2026, 7, 22); // August = 7
 
 function updateCountdown() {
+
+    const timer = document.getElementById("timer");
+    if (!timer) return;
 
     const now = new Date();
     const diff = birthday - now;
 
-    // Birthday reached
     if (diff <= 0) {
-        document.getElementById("timer").innerHTML =
-        "🎉 It's Your Birthday Today! 🎂";
+        timer.innerHTML = "🎉 It's Your Birthday Today! 🎂";
         return;
     }
 
@@ -35,32 +33,36 @@ function updateCountdown() {
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("timer").innerHTML =
-    `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
+    timer.innerHTML =
+        `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
 }
 
-// Start countdown immediately
 updateCountdown();
-
-// Update every second
 setInterval(updateCountdown, 1000);
+
+// =========================
+// Gift Button
+// =========================
 const giftBtn = document.getElementById("giftBtn");
 
-if(giftBtn){
-
+if (giftBtn) {
     giftBtn.addEventListener("click", () => {
-
-        document.getElementById("questionBox").style.display =
-        "block";
-
+        const box = document.getElementById("questionBox");
+        if (box) box.style.display = "block";
     });
-
 }
+
+// =========================
+// NO Button runaway effect (FIXED + MOBILE SAFE)
+// =========================
 const noBtn = document.getElementById("noBtn");
 
-if(noBtn){
+if (noBtn) {
 
-    noBtn.addEventListener("mouseover", () => {
+    function moveNoBtn() {
+
+        // 📱 MOBILE: no runaway (normal below YES)
+        if (window.innerWidth <= 600) return;
 
         const maxX = window.innerWidth - 200;
         const maxY = window.innerHeight - 100;
@@ -68,40 +70,45 @@ if(noBtn){
         const randomX = Math.random() * maxX;
         const randomY = Math.random() * maxY;
 
+        noBtn.style.position = "absolute";
         noBtn.style.left = randomX + "px";
         noBtn.style.top = randomY + "px";
+    }
 
+    noBtn.addEventListener("mouseover", moveNoBtn);
+    noBtn.addEventListener("click", moveNoBtn);
+    noBtn.addEventListener("touchstart", function(e){
+        e.preventDefault();
+        moveNoBtn();
     });
-
 }
+
+// =========================
+// YES Button final screen
+// =========================
 const yesBtn = document.getElementById("yesBtn");
 
-if(yesBtn){
-
+if (yesBtn) {
     yesBtn.addEventListener("click", () => {
 
         document.body.innerHTML = `
+            <div style="
+                text-align:center;
+                margin-top:150px;
+                font-family: Arial;
+            ">
 
-        <div style="
-        text-align:center;
-        margin-top:150px;
-        ">
+                <h1>❤️ I Knew It ❤️</h1>
 
-            <h1>❤️ I Knew It ❤️</h1>
+                <h2>
+                    Happy Birthday My Best Friend, My Philosopher, My Guide 🎂
+                </h2>
 
-            <h2>
-                Happy Birthday My Best Friend ,My Phillosopher, My Guide🎂
-            </h2>
+                <p>
+                    Thank you for being the most beautiful part of my life ❤️
+                </p>
 
-            <p>
-                Thank you for being the most
-                beautiful part of my life ❤️
-            </p>
-
-        </div>
-
+            </div>
         `;
-
     });
-
 }
