@@ -13,7 +13,7 @@ function checkBirthday() {
 }
 
 // 🎂 Birthday date (SAFE FORMAT)
-const birthday = new Date(2026, 7, 22); // August = 7
+const birthday = new Date(2026, 8, 22); // August = 22
 
 function updateCountdown() {
 
@@ -40,6 +40,37 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+function createBalloons() {
+
+    for(let i = 0; i < 20; i++) {
+
+        const balloon = document.createElement("div");
+
+        balloon.innerHTML = "🎈";
+        balloon.style.position = "fixed";
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.bottom = "-50px";
+        balloon.style.fontSize = "40px";
+        balloon.style.zIndex = "9999";
+
+        document.body.appendChild(balloon);
+
+        let position = -50;
+
+        const fly = setInterval(() => {
+
+            position += 5;
+            balloon.style.bottom = position + "px";
+
+            if(position > window.innerHeight + 100){
+                clearInterval(fly);
+                balloon.remove();
+            }
+
+        }, 20);
+    }
+}
+
 // =========================
 // Gift Button
 // =========================
@@ -47,11 +78,13 @@ const giftBtn = document.getElementById("giftBtn");
 
 if (giftBtn) {
     giftBtn.addEventListener("click", () => {
+
         const box = document.getElementById("questionBox");
         if (box) box.style.display = "block";
+
+        createBalloons();
     });
 }
-
 // =========================
 // NO Button runaway effect (FIXED + MOBILE SAFE)
 // =========================
@@ -112,3 +145,4 @@ if (yesBtn) {
         `;
     });
 }
+
