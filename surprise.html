@@ -70,6 +70,8 @@ body{
     align-items:center;
     text-align:center;
     padding:50px 20px;
+
+    position:relative;
 }
 
 button{
@@ -114,8 +116,23 @@ img{
 
 #questionBox{
     margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
 }
+@media (max-width: 600px){
+    #questionBox{
+        position:relative;
+    }
 
+    #noBtn{
+        position:relative;  /* mobile pe normal flow */
+        left:auto;
+        top:auto;
+    }
+
+}
 </style>
 </head>
 
@@ -125,7 +142,7 @@ img{
 
 <h1>🎉 Happy Birthday Madam ❤️</h1>
 
-<p>Today is all about you ✨</p>
+<p>✨Today is Your Day✨</p>
 
 <h2>💌 A Special Letter</h2>
 
@@ -171,9 +188,45 @@ Nothing Nothing 😜
 </section>
 
 <script>
+function createBalloons() {
+
+    for(let i = 0; i < 15; i++) {
+
+        const balloon = document.createElement("div");
+
+        balloon.innerHTML = "🎈";
+        balloon.style.position = "fixed";
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.bottom = "-50px";
+        balloon.style.fontSize = "40px";
+        balloon.style.zIndex = "9999";
+        balloon.style.pointerEvents = "none";
+
+        document.body.appendChild(balloon);
+
+        let pos = -50;
+
+        const fly = setInterval(() => {
+
+            pos += 4;
+            balloon.style.bottom = pos + "px";
+
+            if (pos > window.innerHeight + 100) {
+                clearInterval(fly);
+                balloon.remove();
+            }
+
+        }, 20);
+    }
+}
 
 document.getElementById("giftBtn").onclick = function(){
+
     document.getElementById("questionBox").style.display = "block";
+
+    createBalloons();
+
+    setInterval(createBalloons, 3000);
 };
 
 const noBtn = document.getElementById("noBtn");
