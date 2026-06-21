@@ -5,7 +5,7 @@ function checkBirthday() {
     const day = today.getDate();
     const month = today.getMonth() + 1;
 
-    if (day === 22 && month === 8) {
+    if (day === 22 && month === 7) {
         window.location.href = "surprise.html";
     } else {
         alert("🎁 This surprise is locked until 22 August ❤️");
@@ -13,7 +13,7 @@ function checkBirthday() {
 }
 
 // 🎂 Birthday date (SAFE FORMAT)
-const birthday = new Date(2026, 8, 22); // August = 22
+const birthday = new Date(2026, 7, 22); // August = 22
 
 function updateCountdown() {
 
@@ -145,4 +145,5 @@ if (yesBtn) {
         `;
     });
 }
+
 
