@@ -4,52 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday My Teacher ❤️</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- HERO SECTION -->
     <section class="hero">
-        <h1>Happy Birthday Sumaiya ❤️</h1>
+        <h1>Happy Birthday Sumaiya (My Sumi) ❤️</h1>
         <p>"Every day with you feels like my favourite chapter"</p>
+
         <button onclick="checkBirthday()">🎁 Open Your Surprise</button>
-        <div id="surprise" style="display:none;">
-    <h2>🎉 Happy Birthday Maam ❤️</h2>
-
-    <p>
-        "Happy birthday to my favourite person! I'm so incredibly lucky to have a best friend who understand me,supports me,and makes life so much brighter."
-    </p>
-
-    <p>
-        Thank you for being part of my life.
-        I love you more than words can express. ❤️
-    </p>
-
-    <h2>❤️ Forever Together ❤️</h2>
-</div>
     </section>
 
+    <!-- SURPRISE (optional if you want later use) -->
+    <div id="surprise" style="display:none; text-align:center; margin-top:20px;">
+        <h2>🎉 Happy Birthday Maam ❤️</h2>
+
+        <p>
+            Happy birthday to my favourite person!
+            I'm so incredibly lucky to have a best friend who understands me,
+            supports me, and makes life so much brighter.
+        </p>
+
+        <p>
+            Thank you for being part of my life.
+            I love you more than words can express. ❤️
+        </p>
+
+        <h2>❤️ Forever Together ❤️</h2>
+    </div>
+
+    <!-- MESSAGE -->
     <section class="message">
         <h2>A Letter For You 💌</h2>
         <p>
-            "You are my best friend,my greatest 
-             adventure,and my one true love.
-             Happy Birthday,gorgeous!"
+            "You are my best friend, my greatest adventure,
+            and my one true love. Happy Birthday, gorgeous!"
         </p>
     </section>
 
+    <!-- GALLERY -->
     <section class="gallery">
         <h2>Our Memories 📸</h2>
 
-        <img src="images/photo1.jpg">
-        <img src="images/photo2.jpg">
-        <img src="images/photo3.jpg">
+        <img src="images/photo1.jpg" alt="photo1">
+        <img src="images/photo2.jpg" alt="photo2">
+        <img src="images/photo3.jpg" alt="photo3">
     </section>
 
+    <!-- COUNTDOWN -->
     <section class="countdown">
         <h2>Countdown ❤️</h2>
         <div id="timer"></div>
     </section>
 
+    <!-- LOVE SECTION -->
     <section class="love">
         <h2>Reasons I Like You ❤️</h2>
 
@@ -59,8 +70,11 @@
         <div class="card">Everything About You 💕</div>
     </section>
 
-    
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="script.js"></script>
+
+    <!-- IMPORTANT: defer prevents blank page issues -->
+    <script src="script.js" defer></script>
+
 </body>
 </html>
