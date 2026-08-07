@@ -5,7 +5,7 @@ function checkBirthday() {
     const day = today.getDate();
     const month = today.getMonth() + 1;
 
-    if (day === 7 && month === 8) { 
+    if (day === 22 && month === 7) { 
         window.location.href = "surprise.html";
     } else {
          alert("🎁 This surprise is locked until 22 August ❤️");
