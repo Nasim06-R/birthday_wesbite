@@ -521,7 +521,7 @@ function checkBirthday() {
     */
 
     if (
-        day === 9 &&
+        day === 22 &&
         month === 8
     ) {
 
