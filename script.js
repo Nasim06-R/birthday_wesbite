@@ -1,196 +1,281 @@
 /* =====================================================
-   🎂 BIRTHDAY WEBSITE SCRIPT
+   🎈 BALLOONS
 ===================================================== */
+
+function createBalloons() {
+
+    for (let i = 0; i < 15; i++) {
+
+        const b = document.createElement("div");
+
+        b.innerHTML = "🎈";
+
+        b.style.position = "fixed";
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.bottom = "-60px";
+        b.style.fontSize = "40px";
+        b.style.pointerEvents = "none";
+        b.style.zIndex = "99999";
+
+        document.body.appendChild(b);
+
+        let y = -60;
+
+        const fly = setInterval(() => {
+
+            y += 4;
+
+            b.style.bottom = y + "px";
+
+            if (y > window.innerHeight + 100) {
+
+                clearInterval(fly);
+                b.remove();
+
+            }
+
+        }, 20);
+    }
+}
 
 
 /* =====================================================
-   💝 INTRO → YOUR EXISTING PAGE
+   ❤️ OPEN MY HEART
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const intro =
-        document.getElementById("birthdayIntro");
+    const giftBtn = document.getElementById("giftBtn");
 
-    const mainWebsite =
-        document.getElementById("mainWebsite");
+    if (giftBtn) {
 
-    const clickHereBtn =
-        document.getElementById("clickHereBtn");
+        giftBtn.addEventListener("click", function () {
 
+            const questionBox =
+                document.getElementById("questionBox");
 
-    if (
-        !intro ||
-        !mainWebsite ||
-        !clickHereBtn
-    ) {
-        return;
-    }
-
-
-    clickHereBtn.addEventListener(
-        "click",
-        function () {
-
-            /* 🎉 Confetti */
-
-            if (typeof confetti === "function") {
-
-                confetti({
-                    particleCount: 150,
-                    spread: 100,
-                    origin: {
-                        y: 0.6
-                    }
-                });
-
+            if (questionBox) {
+                questionBox.style.display = "flex";
             }
 
+            createBalloons();
 
-            /* Hide intro */
+        });
+    }
 
-            intro.classList.add("hide");
 
+    /* =================================================
+       😜 NOTHING NOTHING
+       DESKTOP + MOBILE
+    ================================================= */
 
-            /* Show existing website */
+    const noBtn =
+        document.getElementById("noBtn");
 
-            setTimeout(function () {
+    if (noBtn) {
 
-                mainWebsite.classList.add("show");
+        function moveNoButton() {
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "instant"
-                });
+            const padding = 15;
 
-            }, 700);
+            const buttonWidth =
+                noBtn.offsetWidth || 150;
+
+            const buttonHeight =
+                noBtn.offsetHeight || 50;
+
+            const maxX =
+                window.innerWidth -
+                buttonWidth -
+                padding;
+
+            const maxY =
+                window.innerHeight -
+                buttonHeight -
+                padding;
+
+            const randomX =
+                padding +
+                Math.random() *
+                Math.max(0, maxX - padding);
+
+            const randomY =
+                padding +
+                Math.random() *
+                Math.max(0, maxY - padding);
+
+            noBtn.style.position = "fixed";
+
+            noBtn.style.left =
+                randomX + "px";
+
+            noBtn.style.top =
+                randomY + "px";
+
+            noBtn.style.zIndex = "999999";
 
         }
-    );
+
+
+        /* Desktop */
+
+        noBtn.addEventListener(
+            "mouseover",
+            moveNoButton
+        );
+
+
+        /* Mobile */
+
+        noBtn.addEventListener(
+            "touchstart",
+            function (event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* Click */
+
+        noBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                moveNoButton();
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       ❤️ YES BUTTON
+    ================================================= */
+
+    const yesBtn =
+        document.getElementById("yesBtn");
+
+    if (yesBtn) {
+
+        yesBtn.addEventListener(
+            "click",
+            function () {
+
+                document.body.innerHTML = `
+
+                    <div
+                        id="videoScreen"
+                        style="
+                            width:100vw;
+                            height:100vh;
+                            background:black;
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                        "
+                    >
+
+                        <video
+                            id="loveVideo"
+                            controls
+                            autoplay
+                            playsinline
+                            style="
+                                width:100%;
+                                height:100%;
+                                object-fit:contain;
+                            "
+                        >
+
+                            <source
+                                src="images/love-video.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+                    </div>
+
+                `;
+
+
+                const video =
+                    document.getElementById("loveVideo");
+
+
+                if (!video) return;
+
+
+                video.onended = function () {
+
+                    document.body.innerHTML = `
+
+                        <div
+                            id="finalScreen"
+                            style="
+                                min-height:100vh;
+                                display:flex;
+                                flex-direction:column;
+                                justify-content:center;
+                                align-items:center;
+                                text-align:center;
+                                padding:30px;
+                                color:white;
+                                background:
+                                linear-gradient(
+                                    rgba(0,0,0,.55),
+                                    rgba(0,0,0,.55)
+                                ),
+                                url('images/rose-bg.jpg');
+                                background-size:cover;
+                                background-position:center;
+                            "
+                        >
+
+                            <h1>
+                                ❤️ I Knew It ❤️
+                            </h1>
+
+                            <h2>
+                                🎂 Happy Birthday Madam 🎂
+                            </h2>
+
+                            <p>
+                                Thank you for being
+                                the most beautiful
+                                part of my life.
+                            </p>
+
+                            <p>
+                                You are my happiness,
+                                my peace,
+                                and my favorite person
+                                in this world.
+                            </p>
+
+                            <h2>
+                                Happy Birthday ❤️
+                            </h2>
+
+                        </div>
+
+                    `;
+
+                };
+
+            }
+        );
+
+    }
 
 });
-
-
-
-/* =====================================================
-   🎁 OPEN YOUR SURPRISE
-===================================================== */
-
-function checkBirthday() {
-
-    const today =
-        new Date();
-
-    const day =
-        today.getDate();
-
-    const month =
-        today.getMonth() + 1;
-
-
-    /* 🎂 9 August */
-
-    if (
-        day === 9 &&
-        month === 8
-    ) {
-
-        window.location.href =
-            "surprise.html";
-
-    } else {
-
-        alert(
-            "🎁 This surprise is locked until 22 August ❤️"
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
-   🎂 COUNTDOWN
-===================================================== */
-
-const birthday =
-    new Date(2026, 7, 9);
-
-
-/*
-   JavaScript months start from 0.
-
-   August = 7
-*/
-
-
-function updateCountdown() {
-
-    const timer =
-        document.getElementById("timer");
-
-
-    if (!timer) {
-        return;
-    }
-
-
-    const now =
-        new Date();
-
-    const diff =
-        birthday - now;
-
-
-    if (diff <= 0) {
-
-        timer.innerHTML =
-            "🎉 It's Your Birthday Today! 🎂";
-
-        return;
-    }
-
-
-    const days =
-        Math.floor(
-            diff /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    const hours =
-        Math.floor(
-            (diff /
-                (1000 * 60 * 60))
-            % 24
-        );
-
-
-    const minutes =
-        Math.floor(
-            (diff /
-                (1000 * 60))
-            % 60
-        );
-
-
-    const seconds =
-        Math.floor(
-            (diff / 1000)
-            % 60
-        );
-
-
-    timer.innerHTML =
-        `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
-
-}
-
-
-updateCountdown();
-
-setInterval(
-    updateCountdown,
-    1000
-);
