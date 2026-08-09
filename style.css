@@ -1,80 +1,1132 @@
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#0f0f0f;
-    color:white;
-    text-align:center;
+/* =====================================================
+   🎂 GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
 }
 
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(
-        135deg,
-        #0f0f0f,
-        #2d1b1b,
-        #6d214f
-    );
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
 }
 
 
-button{
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:18px;
+/* =====================================================
+   🎂 INTRO
+===================================================== */
+
+#birthdayIntro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255, 245, 249, 0.95),
+            rgba(255, 239, 246, 0.95)
+        );
+
+    color: #171717;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
+
+/* Grid like the video */
+
+.intro-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(220, 120, 160, 0.13) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(220, 120, 160, 0.13) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+
+    opacity: 0.7;
+}
+
+
+/* =====================================================
+   🎀 BUNTING
+===================================================== */
+
+.bunting {
+    position: absolute;
+    top: 35px;
+
+    display: flex;
+    gap: 8px;
+
+    z-index: 3;
+}
+
+.bunting-left {
+    left: -10px;
+}
+
+.bunting-right {
+    right: -10px;
+}
+
+.bunting span {
+    width: 0;
+    height: 0;
+
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    border-top: 32px solid #e84669;
+
+    transform-origin: top;
+
+    animation: flagWave 2s infinite ease-in-out;
+}
+
+.bunting span:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes flagWave {
+
+    0%,
+    100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+
+/* =====================================================
+   ✨ STARS
+===================================================== */
+
+.star {
+    position: absolute;
+
+    color: #c92d5d;
+
+    font-size: 22px;
+
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+.star1 {
+    top: 25%;
+    left: 15%;
+}
+
+.star2 {
+    top: 38%;
+    left: 42%;
+}
+
+.star3 {
+    top: 24%;
+    right: 17%;
+}
+
+.star4 {
+    bottom: 20%;
+    right: 35%;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(0.7);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   🎂 LEFT SIDE
+===================================================== */
+
+.intro-left {
+    position: relative;
+
+    width: 48%;
+
+    margin-left: 4%;
+
+    z-index: 5;
+
+    animation: slideLeft 1.2s ease forwards;
+}
+
+@keyframes slideLeft {
+
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =====================================================
+   🎉 HAPPY BIRTHDAY TEXT
+===================================================== */
+
+.birthday-title {
+    text-align: left;
+
+    font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+
+    font-weight: 900;
+
+    line-height: 0.9;
+}
+
+
+.happy-word,
+.birthday-word {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* HAPPY */
+
+.happy-word span {
+    font-size: clamp(45px, 7vw, 95px);
+
+    color: white;
+
+    -webkit-text-stroke: 4px #161616;
+
+    text-shadow:
+        4px 4px 0 #d9d9d9;
+
+    opacity: 0;
+
+    animation:
+        letterPop 0.45s ease forwards;
+}
+
+
+/* BIRTHDAY */
+
+.birthday-word span {
+    font-size: clamp(42px, 6.5vw, 88px);
+
+    color: #ef5570;
+
+    -webkit-text-stroke: 4px #161616;
+
+    text-shadow:
+        4px 4px 0 #d9365b;
+
+    opacity: 0;
+
+    animation:
+        letterPop 0.45s ease forwards;
+}
+
+
+/* Individual timing */
+
+.happy-word span:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.happy-word span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.happy-word span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.happy-word span:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+.happy-word span:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+
+.birthday-word span:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.birthday-word span:nth-child(2) {
+    animation-delay: 0.9s;
+}
+
+.birthday-word span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.birthday-word span:nth-child(4) {
+    animation-delay: 1.1s;
+}
+
+.birthday-word span:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+.birthday-word span:nth-child(6) {
+    animation-delay: 1.3s;
+}
+
+.birthday-word span:nth-child(7) {
+    animation-delay: 1.4s;
+}
+
+.birthday-word span:nth-child(8) {
+    animation-delay: 1.5s;
+}
+
+
+@keyframes letterPop {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(50px)
+            scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   🎉 PARTY HAT
+===================================================== */
+
+.party-hat {
+    position: absolute;
+
+    top: 0;
+    left: 52%;
+
+    font-size: 55px;
+
+    transform: rotate(-15deg);
+
+    animation:
+        hatBounce 2s
+        infinite ease-in-out;
+}
+
+@keyframes hatBounce {
+
+    0%,
+    100% {
+        transform:
+            rotate(-15deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(-8deg)
+            translateY(-8px);
+    }
+}
+
+
+/* =====================================================
+   📅 DATE
+===================================================== */
+
+.intro-date {
+    margin-top: 45px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 12px 30px;
+
+    min-width: 280px;
+
+    border-radius: 30px;
+
+    background: #f05a74;
+
+    color: #181818;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 5px 0 #c93659;
+
+    opacity: 0;
+
+    animation:
+        dateAppear 1s
+        ease forwards;
+
+    animation-delay: 2.2s;
+}
+
+@keyframes dateAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   💌 CLICK HERE
+===================================================== */
+
+#clickHereBtn {
+    display: block;
+
+    margin-top: 25px;
+
+    padding: 13px 32px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #ef3e59;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 #b92843;
+
+    opacity: 0;
+
+    animation:
+        buttonAppear 1s
+        ease forwards;
+
+    animation-delay: 3s;
+
+    transition: 0.25s;
+}
+
+#clickHereBtn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 0 #b92843;
+}
+
+#clickHereBtn:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 2px 0 #b92843;
+}
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   🧸 RIGHT SIDE
+===================================================== */
+
+.intro-right {
+    position: relative;
+
+    width: 42%;
+    height: 520px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    animation:
+        slideRight 1.5s
+        ease forwards;
+}
+
+@keyframes slideRight {
+
+    from {
+        opacity: 0;
+        transform:
+            translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =====================================================
+   🎈 BALLOONS
+===================================================== */
+
+.intro-balloon {
+    position: absolute;
+
+    font-size: 75px;
+
+    animation:
+        balloonFloat 3s
+        infinite ease-in-out;
+}
+
+.balloon-one {
+    top: 40px;
+    left: 18%;
+}
+
+.balloon-two {
+    top: 180px;
+    right: 10%;
+}
+
+.balloon-three {
+    bottom: 65px;
+    right: 17%;
+}
+
+.balloon-two {
+    animation-delay: 0.8s;
+}
+
+.balloon-three {
+    animation-delay: 1.4s;
+}
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(5deg);
+    }
+}
+
+
+/* =====================================================
+   🧸 BEAR
+===================================================== */
+
+.bear-circle {
+    position: relative;
+
+    width: 310px;
+    height: 390px;
+
+    border: 3px solid #222;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff8fa,
+            #ffe9f0
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        bearAppear 1.5s
+        ease forwards;
+
+    animation-delay: 1.8s;
+
+    opacity: 0;
+}
+
+@keyframes bearAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(0.5)
+            rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+.bear {
+    font-size: 175px;
+
+    filter:
+        drop-shadow(
+            0 8px 4px
+            rgba(0, 0, 0, 0.15)
+        );
+
+    animation:
+        bearBounce 2s
+        infinite ease-in-out;
+}
+
+@keyframes bearBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.bear-cake {
+    position: absolute;
+
+    right: 45px;
+    bottom: 115px;
+
+    font-size: 45px;
+
+    animation:
+        cakeBounce 1.5s
+        infinite ease-in-out;
+}
+
+@keyframes cakeBounce {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+
+/* =====================================================
+   ✨ CONFETTI
+===================================================== */
+
+.confetti {
+    position: absolute;
+
+    font-size: 25px;
+
+    animation:
+        confettiFloat 2s
+        infinite ease-in-out;
+}
+
+.c1 {
+    top: 25%;
+    left: 20%;
+}
+
+.c2 {
+    top: 30%;
+    right: 20%;
+}
+
+.c3 {
+    bottom: 30%;
+    left: 18%;
+}
+
+.c4 {
+    bottom: 20%;
+    right: 25%;
+}
+
+.c5 {
+    top: 45%;
+    right: 10%;
+}
+
+@keyframes confettiFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(180deg);
+    }
+}
+
+
+/* =====================================================
+   💗 CUTIE
+===================================================== */
+
+.cutie-label {
+    position: absolute;
+
+    bottom: -15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 10px 45px;
+
+    border-radius: 20px;
+
+    background: #ef526c;
+
+    color: #222;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 0 #c93955;
+}
+
+
+/* =====================================================
+   ❤️ FLOATING HEARTS
+===================================================== */
+
+.intro-heart {
+    position: absolute;
+
+    color: #ef4f70;
+
+    font-size: 25px;
+
+    animation:
+        heartFloat 3s
+        infinite ease-in-out;
+}
+
+.h1 {
+    left: 42%;
+    bottom: 15%;
+}
+
+.h2 {
+    right: 45%;
+    top: 25%;
+}
+
+.h3 {
+    left: 8%;
+    bottom: 20%;
+}
+
+.h4 {
+    right: 8%;
+    top: 50%;
+}
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            scale(1.3);
+    }
+}
+
+
+/* =====================================================
+   🎬 INTRO HIDE
+===================================================== */
+
+#birthdayIntro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   🌐 MAIN WEBSITE
+===================================================== */
+
+#mainWebsite {
+    display: none;
+}
+
+#mainWebsite.show {
+    display: block;
+}
+
+
+/* =====================================================
+   ❤️ YOUR EXISTING HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f0f0f,
+            #2d1b1b,
+            #6d214f
+        );
+}
+
+.hero h1 {
+    font-size: clamp(30px, 6vw, 60px);
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+}
+
+.hero button {
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   📖 OTHER SECTIONS
+===================================================== */
+
+#surprise,
 .message,
 .gallery,
 .countdown,
-.love{
-    padding:60px 20px;
+.love {
+    padding: 60px 20px;
+
+    text-align: center;
 }
 
-.gallery img{
-    width:250px;
-    height:300px;
-    object-fit:cover;
-    border-radius:20px;
-    margin:10px;
+#surprise {
+    display: none;
 }
 
-.card{
-    background: white;
-    color: black;
-    padding: 20px;
-    margin: 10px auto;
-    width: 250px;
-    border-radius: 15px;
+
+.message {
+    line-height: 1.8;
+
+    background: #191919;
+}
+
+.message p {
+    max-width: 850px;
+
+    margin: auto;
+
     font-size: 18px;
 }
-.final-question{
-    text-align:center;
-    padding:100px 20px;
+
+
+.gallery {
+    background: #111;
 }
 
-#giftBtn,
-#yesBtn,
-#noBtn{
+.gallery-container {
+    display: flex;
 
-    padding:15px 30px;
-    font-size:18px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    margin:15px;
+    flex-wrap: wrap;
+
+    justify-content: center;
 }
 
-#yesBtn{
-    background:#ff69b4;
-    color:white;
+.gallery img {
+    width: 250px;
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    margin: 10px;
+
+    transition: 0.3s;
 }
 
-#noBtn{
-    position:absolute;
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+
+.countdown {
+    background: #24141e;
+}
+
+#timer {
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+}
+
+
+.love {
+    background: #171717;
+}
+
+.card {
+    background: white;
+
+    color: black;
+
+    padding: 20px;
+
+    margin: 15px auto;
+
+    width: 250px;
+
+    border-radius: 15px;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   📱 MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    #birthdayIntro {
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        overflow-y: auto;
+
+        padding-top: 80px;
+    }
+
+
+    .intro-left {
+        width: 90%;
+
+        margin: 0;
+
+        text-align: center;
+    }
+
+
+    .birthday-title {
+        text-align: center;
+    }
+
+
+    .happy-word,
+    .birthday-word {
+        justify-content: center;
+    }
+
+
+    .happy-word span {
+        font-size: 48px;
+
+        -webkit-text-stroke: 2px #111;
+    }
+
+
+    .birthday-word span {
+        font-size: 43px;
+
+        -webkit-text-stroke: 2px #111;
+    }
+
+
+    .party-hat {
+        left: auto;
+        right: 12%;
+
+        top: -15px;
+
+        font-size: 40px;
+    }
+
+
+    .intro-date {
+        margin-top: 25px;
+
+        min-width: 240px;
+
+        font-size: 15px;
+
+        padding: 10px 18px;
+
+        gap: 10px;
+    }
+
+
+    .intro-right {
+        width: 100%;
+
+        height: 390px;
+
+        margin-top: 30px;
+    }
+
+
+    .bear-circle {
+        width: 230px;
+        height: 300px;
+    }
+
+
+    .bear {
+        font-size: 130px;
+    }
+
+
+    .bear-cake {
+        right: 25px;
+
+        bottom: 90px;
+
+        font-size: 35px;
+    }
+
+
+    .intro-balloon {
+        font-size: 55px;
+    }
+
+
+    .cutie-label {
+        padding: 8px 35px;
+    }
+
+
+    .bunting {
+        top: 15px;
+    }
+
+
+    .bunting span {
+        border-left-width: 12px;
+        border-right-width: 12px;
+        border-top-width: 25px;
+    }
+
+
+    .gallery img {
+        width: 90%;
+        height: 350px;
+    }
+
 }
