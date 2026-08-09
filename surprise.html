@@ -1,422 +1,258 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤️</title>
+function createBalloons() {
 
-<style>
-    
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    for (let i = 0; i < 15; i++) {
 
-body{
+        const b = document.createElement("div");
 
-font-family:Georgia,serif;
+        b.innerHTML = "🎈";
 
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url("images/rose-bg.jpg");
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-
-color:white;
-
-overflow-x:hidden;
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-padding:30px;
-
-text-align:center;
-
-}
-
-.hero h1{
-
-font-size:55px;
-
-margin-bottom:20px;
-
-}
-
-.hero h2{
-
-margin-top:30px;
-
-margin-bottom:20px;
-
-}
-
-.hero p{
-
-max-width:700px;
-
-font-size:20px;
-
-line-height:1.8;
-
-}
-
-.hero img{
-
-width:320px;
-
-border-radius:20px;
-
-margin-top:30px;
-
-box-shadow:0 0 25px white;
-
-}
-
-.final{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
-
-position:relative;
-
-}
-
-button{
-
-padding:15px 30px;
-
-font-size:18px;
-
-border:none;
-
-border-radius:30px;
-
-cursor:pointer;
-
-margin:10px;
-
-}
-
-#giftBtn{
-
-background:white;
-
-color:#ff4f81;
-
-}
-
-#yesBtn{
-
-background:#ff4f81;
-
-color:white;
-
-}
-
-#noBtn{
-
-background:white;
-
-color:#ff4f81;
-
-position:absolute;
-
-}
-
-#questionBox{
-
-display:none;
-
-margin-top:40px;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:15px;
-
-}
-
-@media(max-width:600px){
-
-.hero h1{
-
-font-size:38px;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-}
-
-#noBtn{
-
-position:relative;
-
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<section class="hero">
-
-<h1>🎉 Happy Birthday Madam ❤️</h1>
-
-<p>✨ Today Is Your Day ✨</p>
-
-<h2>💌 A Letter For You</h2>
-
-<p>
-
-Thank you for being part of my life.
-
-Every moment with you is special.
-
-Your smile brightens my darkest days.
-
-I wish you endless happiness,
-
-good health and success.
-
-Happy Birthday ❤️
-
-</p>
-
-<img src="images/photo1.jpg">
-
-</section>
-
-<section class="final">
-
-<h1>🎁 One Last Gift</h1>
-
-<button id="giftBtn">
-
-Open My Heart ❤️
-
-</button>
-
-<div id="questionBox">
-
-<h2>💖 One Last Question 💖</h2>
-
-<p>Ajke bole dao tahole...❤️</p>
-
-<button id="yesBtn">
-
-Something Something ❤️
-
-</button>
-
-<button id="noBtn">
-
-Nothing Nothing 😜
-
-</button>
-
-</div>
-
-</section>
-<script>
-
-function createBalloons(){
-
-    for(let i=0;i<15;i++){
-
-        const b=document.createElement("div");
-
-        b.innerHTML="🎈";
-
-        b.style.position="fixed";
-        b.style.left=Math.random()*100+"vw";
-        b.style.bottom="-60px";
-        b.style.fontSize="40px";
-        b.style.pointerEvents="none";
-        b.style.zIndex="9999";
+        b.style.position = "fixed";
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.bottom = "-60px";
+        b.style.fontSize = "40px";
+        b.style.pointerEvents = "none";
+        b.style.zIndex = "9999";
 
         document.body.appendChild(b);
 
-        let y=-60;
+        let y = -60;
 
-        const fly=setInterval(()=>{
+        const fly = setInterval(() => {
 
-            y+=4;
+            y += 4;
 
-            b.style.bottom=y+"px";
+            b.style.bottom = y + "px";
 
-            if(y>window.innerHeight+100){
+            if (y > window.innerHeight + 100) {
 
                 clearInterval(fly);
-
                 b.remove();
 
             }
 
-        },20);
+        }, 20);
 
     }
+}
+
+
+/* =========================================
+   🎁 OPEN MY HEART
+========================================= */
+
+const giftBtn = document.getElementById("giftBtn");
+
+if (giftBtn) {
+
+    giftBtn.onclick = function () {
+
+        const questionBox =
+            document.getElementById("questionBox");
+
+        if (questionBox) {
+            questionBox.style.display = "flex";
+        }
+
+        createBalloons();
+    };
+}
+
+
+/* =========================================
+   😜 NOTHING NOTHING BUTTON
+   Desktop + Mobile
+========================================= */
+
+const noBtn =
+    document.getElementById("noBtn");
+
+if (noBtn) {
+
+    function moveNoButton() {
+
+        const padding = 15;
+
+        const buttonWidth =
+            noBtn.offsetWidth || 150;
+
+        const buttonHeight =
+            noBtn.offsetHeight || 50;
+
+
+        const maxX =
+            window.innerWidth -
+            buttonWidth -
+            padding;
+
+        const maxY =
+            window.innerHeight -
+            buttonHeight -
+            padding;
+
+
+        const randomX =
+            padding +
+            Math.random() *
+            Math.max(0, maxX - padding);
+
+
+        const randomY =
+            padding +
+            Math.random() *
+            Math.max(0, maxY - padding);
+
+
+        noBtn.style.position = "fixed";
+
+        noBtn.style.left =
+            randomX + "px";
+
+        noBtn.style.top =
+            randomY + "px";
+
+        noBtn.style.zIndex = "10000";
+    }
+
+
+    /* Desktop */
+
+    noBtn.addEventListener(
+        "mouseover",
+        moveNoButton
+    );
+
+
+    /* Mobile */
+
+    noBtn.addEventListener(
+        "touchstart",
+        function (event) {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        },
+        { passive: false }
+    );
+
+
+    /* Also works on click */
+
+    noBtn.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        }
+    );
 
 }
 
-document.getElementById("giftBtn").onclick=function(){
 
-    document.getElementById("questionBox").style.display="flex";
+/* =========================================
+   ❤️ YES BUTTON
+========================================= */
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+if (yesBtn) {
+
+    yesBtn.onclick = function () {
+
+        document.body.innerHTML = `
+
+            <div style="
+                width:100vw;
+                height:100vh;
+                background:black;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            ">
+
+                <video
+                    id="loveVideo"
+                    controls
+                    autoplay
+                    playsinline
+                    style="
+                        width:100%;
+                        height:100%;
+                        object-fit:contain;
+                    "
+                >
+                    <source
+                        src="images/love-video.mp4"
+                        type="video/mp4"
+                    >
+                </video>
+
+            </div>
+        `;
+
+
+        const video =
+            document.getElementById("loveVideo");
+
+
+        video.onended = function () {
+
+            document.body.innerHTML = `
+
+                <div style="
+                    min-height:100vh;
+                    display:flex;
+                    flex-direction:column;
+                    justify-content:center;
+                    align-items:center;
+                    text-align:center;
+                    background:
+                    linear-gradient(
+                        rgba(0,0,0,.55),
+                        rgba(0,0,0,.55)
+                    ),
+                    url('images/rose-bg.jpg');
+                    background-size:cover;
+                    background-position:center;
+                    color:white;
+                    padding:20px;
+                ">
+
+                    <h1>
+                        ❤️ I Knew It ❤️
+                    </h1>
+
+                    <h2>
+                        🎂 Happy Birthday Madam 🎂
+                    </h2>
+
+                    <p>
+                        Thank you for being
+                        the most beautiful
+                        part of my life.
+                    </p>
+
+                    <p>
+                        You are my happiness,
+                        my peace,
+                        and my favorite person
+                        in this world.
+                    </p>
+
+                    <h2>
+                        Happy Birthday ❤️
+                    </h2>
+
+                </div>
+            `;
+
+        };
+
+    };
 
-    createBalloons();
-
-};
-
-const noBtn=document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover",()=>{
-
-    if(window.innerWidth<600)return;
-
-    noBtn.style.left=Math.random()*(window.innerWidth-200)+"px";
-
-    noBtn.style.top=Math.random()*(window.innerHeight-150)+"px";
-
-});
-
-document.getElementById("yesBtn").onclick=function(){
-
-document.body.innerHTML=`
-
-<div style="
-
-width:100vw;
-
-height:100vh;
-
-background:black;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-">
-
-<video
-
-id="loveVideo"
-
-controls
-
-autoplay
-
-playsinline
-
-style="width:100%;height:100%;object-fit:contain;"
-
->
-
-<source src="videos/surprise.mp4" type="video/mp4">
-
-</video>
-
-</div>
-
-`;
-
-const video=document.getElementById("loveVideo");
-
-video.onended=function(){
-
-document.body.innerHTML=`
-
-<div style="
-
-min-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-background:
-
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-url('images/rose-bg.jpg');
-
-background-size:cover;
-
-color:white;
-
-padding:20px;
-
-">
-
-<h1 style="font-size:60px;">
-
-❤️ I Knew It ❤️
-
-</h1>
-
-<h2>
-
-🎂 Happy Birthday Madam 🎂
-
-</h2>
-
-<p style="max-width:700px;font-size:22px;line-height:1.8;">
-
-Thank you for being the most beautiful part of my life.
-
-You are my happiness, my peace,
-
-and my favorite person in this world.
-
-Happy Birthday ❤️
-
-</p>
-
-</div>
-
-`;
-
-};
-
-};
-
-</script>
-
-</body>
-
-</html>
+}
