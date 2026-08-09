@@ -1130,3 +1130,362 @@ body {
     }
 
 }
+/* =====================================================
+   🎁 SURPRISE PAGE
+===================================================== */
+
+.surprise-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #6d214f,
+            #2d1b1b 45%,
+            #0f0f0f
+        );
+
+}
+
+
+.surprise-content {
+
+    max-width: 700px;
+
+    width: 100%;
+
+}
+
+
+.surprise-content h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.surprise-content p {
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+}
+
+
+#giftBtn {
+
+    margin-top: 25px;
+
+    padding: 15px 35px;
+
+    border: none;
+
+    border-radius: 35px;
+
+    background: #ff69b4;
+
+    color: white;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+#giftBtn:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =====================================================
+   ❤️ QUESTION BOX
+===================================================== */
+
+#questionBox {
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 35px;
+
+    animation: questionAppear 0.5s ease;
+
+}
+
+
+#questionBox h2 {
+
+    font-size: 30px;
+
+}
+
+
+.answer-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 20px;
+
+}
+
+
+#yesBtn,
+#noBtn {
+
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+}
+
+
+#yesBtn {
+
+    background: #ff69b4;
+
+    color: white;
+
+}
+
+
+#noBtn {
+
+    background: white;
+
+    color: #222;
+
+}
+
+
+/* =====================================================
+   🎬 VIDEO
+===================================================== */
+
+#videoScreen {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    background: black;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+#loveVideo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   ❤️ FINAL SCREEN
+===================================================== */
+
+#finalScreen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url("images/rose-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+#finalScreen h1 {
+
+    font-size: 45px;
+
+}
+
+
+#finalScreen h2 {
+
+    font-size: 27px;
+
+}
+
+
+#finalScreen p {
+
+    max-width: 600px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   ✨ ANIMATION
+===================================================== */
+
+@keyframes questionAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   📱 MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .surprise-page {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .surprise-content h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .surprise-content p {
+
+        font-size: 17px;
+
+    }
+
+
+    #questionBox h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .answer-buttons {
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    #yesBtn,
+    #noBtn {
+
+        font-size: 16px;
+
+        padding: 13px 20px;
+
+    }
+
+
+    #finalScreen h1 {
+
+        font-size: 35px;
+
+    }
+
+
+    #finalScreen h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    #finalScreen p {
+
+        font-size: 17px;
+
+    }
+
+}
