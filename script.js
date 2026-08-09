@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "click",
         function () {
 
-            /* Confetti */
+            /* 🎉 Confetti */
 
             if (typeof confetti === "function") {
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             intro.classList.add("hide");
 
 
-            /* Show YOUR existing website */
+            /* Show existing website */
 
             setTimeout(function () {
 
@@ -88,12 +88,7 @@ function checkBirthday() {
         today.getMonth() + 1;
 
 
-    /*
-       🎂 Birthday:
-       9 August
-
-       August = 8
-    */
+    /* 🎂 9 August */
 
     if (
         day === 9 &&
@@ -120,11 +115,13 @@ function checkBirthday() {
 ===================================================== */
 
 const birthday =
-    new Date(2026, 7, 22);
+    new Date(2026, 7, 9);
 
 
-/* August = 7
-   because JavaScript starts months at 0
+/*
+   JavaScript months start from 0.
+
+   August = 7
 */
 
 
@@ -141,7 +138,6 @@ function updateCountdown() {
 
     const now =
         new Date();
-
 
     const diff =
         birthday - now;
