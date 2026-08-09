@@ -1,147 +1,200 @@
-function checkBirthday() {
+/* =====================================================
+   🎂 BIRTHDAY WEBSITE SCRIPT
+===================================================== */
 
-    const today = new Date();
 
-    const day = today.getDate();
-    const month = today.getMonth() + 1;
+/* =====================================================
+   💝 INTRO → YOUR EXISTING PAGE
+===================================================== */
 
-    if (day === 22 && month === 7) { 
-        window.location.href = "surprise.html";
-    } else {
-         alert("🎁 This surprise is locked until 22 August ❤️");
-    }
-}
+document.addEventListener("DOMContentLoaded", function () {
 
-// 🎂 Birthday date (SAFE FORMAT)
-const birthday = new Date(2026, 7, 22); // August = 22
+    const intro =
+        document.getElementById("birthdayIntro");
 
-function updateCountdown() {
+    const mainWebsite =
+        document.getElementById("mainWebsite");
 
-    const timer = document.getElementById("timer");
-    if (!timer) return;
+    const clickHereBtn =
+        document.getElementById("clickHereBtn");
 
-    const now = new Date();
-    const diff = birthday - now;
 
-    if (diff <= 0) {
-        timer.innerHTML = "🎉 It's Your Birthday Today! 🎂";
+    if (
+        !intro ||
+        !mainWebsite ||
+        !clickHereBtn
+    ) {
         return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+
+    clickHereBtn.addEventListener(
+        "click",
+        function () {
+
+            /* Confetti */
+
+            if (typeof confetti === "function") {
+
+                confetti({
+                    particleCount: 150,
+                    spread: 100,
+                    origin: {
+                        y: 0.6
+                    }
+                });
+
+            }
+
+
+            /* Hide intro */
+
+            intro.classList.add("hide");
+
+
+            /* Show YOUR existing website */
+
+            setTimeout(function () {
+
+                mainWebsite.classList.add("show");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "instant"
+                });
+
+            }, 700);
+
+        }
+    );
+
+});
+
+
+
+/* =====================================================
+   🎁 OPEN YOUR SURPRISE
+===================================================== */
+
+function checkBirthday() {
+
+    const today =
+        new Date();
+
+    const day =
+        today.getDate();
+
+    const month =
+        today.getMonth() + 1;
+
+
+    /*
+       🎂 Birthday:
+       9 August
+
+       August = 8
+    */
+
+    if (
+        day === 9 &&
+        month === 8
+    ) {
+
+        window.location.href =
+            "surprise.html";
+
+    } else {
+
+        alert(
+            "🎁 This surprise is locked until 22 August ❤️"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   🎂 COUNTDOWN
+===================================================== */
+
+const birthday =
+    new Date(2026, 7, 22);
+
+
+/* August = 7
+   because JavaScript starts months at 0
+*/
+
+
+function updateCountdown() {
+
+    const timer =
+        document.getElementById("timer");
+
+
+    if (!timer) {
+        return;
+    }
+
+
+    const now =
+        new Date();
+
+
+    const diff =
+        birthday - now;
+
+
+    if (diff <= 0) {
+
+        timer.innerHTML =
+            "🎉 It's Your Birthday Today! 🎂";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            diff /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (diff /
+                (1000 * 60 * 60))
+            % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (diff /
+                (1000 * 60))
+            % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (diff / 1000)
+            % 60
+        );
+
 
     timer.innerHTML =
         `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
+
 }
+
 
 updateCountdown();
-setInterval(updateCountdown, 1000);
 
-function createBalloons() {
-
-    for(let i = 0; i < 20; i++) {
-
-        const balloon = document.createElement("div");
-
-        balloon.innerHTML = "🎈";
-        balloon.style.position = "fixed";
-        balloon.style.left = Math.random() * window.innerWidth + "px";
-        balloon.style.bottom = "-50px";
-        balloon.style.fontSize = "40px";
-        balloon.style.zIndex = "9999";
-
-        document.body.appendChild(balloon);
-
-        let position = -50;
-
-        const fly = setInterval(() => {
-
-            position += 5;
-            balloon.style.bottom = position + "px";
-
-            if(position > window.innerHeight + 100){
-                clearInterval(fly);
-                balloon.remove();
-            }
-
-        }, 20);
-    }
-}
-
-// =========================
-// Gift Button
-// =========================
-const giftBtn = document.getElementById("giftBtn");
-
-if (giftBtn) {
-    giftBtn.addEventListener("click", () => {
-
-        const box = document.getElementById("questionBox");
-        if (box) box.style.display = "block";
-
-        createBalloons();
-    });
-}
-// =========================
-// NO Button runaway effect (FIXED + MOBILE SAFE)
-// =========================
-const noBtn = document.getElementById("noBtn");
-
-if (noBtn) {
-
-    function moveNoBtn() {
-
-        // 📱 MOBILE: no runaway (normal below YES)
-        if (window.innerWidth <= 600) return;
-
-        const maxX = window.innerWidth - 200;
-        const maxY = window.innerHeight - 100;
-
-        const randomX = Math.random() * maxX;
-        const randomY = Math.random() * maxY;
-
-        noBtn.style.position = "absolute";
-        noBtn.style.left = randomX + "px";
-        noBtn.style.top = randomY + "px";
-    }
-
-    noBtn.addEventListener("mouseover", moveNoBtn);
-    noBtn.addEventListener("click", moveNoBtn);
-    noBtn.addEventListener("touchstart", function(e){
-        e.preventDefault();
-        moveNoBtn();
-    });
-}
-
-// =========================
-// YES Button final screen
-// =========================
-const yesBtn = document.getElementById("yesBtn");
-
-if (yesBtn) {
-    yesBtn.addEventListener("click", () => {
-
-        document.body.innerHTML = `
-            <div style="
-                text-align:center;
-                margin-top:150px;
-                font-family: Arial;
-            ">
-
-                <h1>❤️ I Knew It ❤️</h1>
-
-                <h2>
-                    Happy Birthday My Best Friend, My Philosopher, My Guide 🎂
-                </h2>
-
-                <p>
-                    Thank you for being the most beautiful part of my life ❤️
-                </p>
-
-            </div>
-        `;
-    });
-}
+setInterval(
+    updateCountdown,
+    1000
+);
