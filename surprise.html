@@ -1,258 +1,108 @@
-function createBalloons() {
+<!DOCTYPE html>
+<html lang="en">
 
-    for (let i = 0; i < 15; i++) {
+<head>
 
-        const b = document.createElement("div");
+    <meta charset="UTF-8">
 
-        b.innerHTML = "🎈";
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-        b.style.position = "fixed";
-        b.style.left = Math.random() * 100 + "vw";
-        b.style.bottom = "-60px";
-        b.style.fontSize = "40px";
-        b.style.pointerEvents = "none";
-        b.style.zIndex = "9999";
+    <title>Happy Birthday Sumaiya ❤️</title>
 
-        document.body.appendChild(b);
+    <link rel="stylesheet" href="style.css">
 
-        let y = -60;
+</head>
 
-        const fly = setInterval(() => {
+<body>
 
-            y += 4;
+    <!-- =========================================
+         🎂 SURPRISE PAGE
+    ========================================== -->
 
-            b.style.bottom = y + "px";
+    <section class="surprise-page">
 
-            if (y > window.innerHeight + 100) {
+        <div class="surprise-content">
 
-                clearInterval(fly);
-                b.remove();
+            <h1>
+                🎂 Happy Birthday ❤️
+            </h1>
 
-            }
+            <p>
+                Thank you for being part of my life.
+            </p>
 
-        }, 20);
+            <p>
+                Every moment with you is special.
+            </p>
 
-    }
-}
+            <p>
+                Your smile brightens my darkest days.
+            </p>
 
+            <p>
+                I wish you endless happiness,
+                good health and success.
+            </p>
 
-/* =========================================
-   🎁 OPEN MY HEART
-========================================= */
+            <h2>
+                Happy Birthday ❤️
+            </h2>
 
-const giftBtn = document.getElementById("giftBtn");
 
-if (giftBtn) {
+            <!-- 🎁 OPEN MY HEART -->
 
-    giftBtn.onclick = function () {
+            <button id="giftBtn">
+                Open My Heart ❤️
+            </button>
 
-        const questionBox =
-            document.getElementById("questionBox");
 
-        if (questionBox) {
-            questionBox.style.display = "flex";
-        }
+            <!-- =====================================
+                 ❤️ QUESTION BOX
+            ====================================== -->
 
-        createBalloons();
-    };
-}
+            <div id="questionBox">
 
+                <h2>
+                    Something Something ❤️
+                </h2>
 
-/* =========================================
-   😜 NOTHING NOTHING BUTTON
-   Desktop + Mobile
-========================================= */
+                <p>
+                    Will you open my heart? 🥺❤️
+                </p>
 
-const noBtn =
-    document.getElementById("noBtn");
+                <div class="answer-buttons">
 
-if (noBtn) {
+                    <button id="yesBtn">
+                        Something Something ❤️
+                    </button>
 
-    function moveNoButton() {
-
-        const padding = 15;
-
-        const buttonWidth =
-            noBtn.offsetWidth || 150;
-
-        const buttonHeight =
-            noBtn.offsetHeight || 50;
-
-
-        const maxX =
-            window.innerWidth -
-            buttonWidth -
-            padding;
-
-        const maxY =
-            window.innerHeight -
-            buttonHeight -
-            padding;
-
-
-        const randomX =
-            padding +
-            Math.random() *
-            Math.max(0, maxX - padding);
-
-
-        const randomY =
-            padding +
-            Math.random() *
-            Math.max(0, maxY - padding);
-
-
-        noBtn.style.position = "fixed";
-
-        noBtn.style.left =
-            randomX + "px";
-
-        noBtn.style.top =
-            randomY + "px";
-
-        noBtn.style.zIndex = "10000";
-    }
-
-
-    /* Desktop */
-
-    noBtn.addEventListener(
-        "mouseover",
-        moveNoButton
-    );
-
-
-    /* Mobile */
-
-    noBtn.addEventListener(
-        "touchstart",
-        function (event) {
-
-            event.preventDefault();
-
-            moveNoButton();
-
-        },
-        { passive: false }
-    );
-
-
-    /* Also works on click */
-
-    noBtn.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            moveNoButton();
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   ❤️ YES BUTTON
-========================================= */
-
-const yesBtn =
-    document.getElementById("yesBtn");
-
-if (yesBtn) {
-
-    yesBtn.onclick = function () {
-
-        document.body.innerHTML = `
-
-            <div style="
-                width:100vw;
-                height:100vh;
-                background:black;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-            ">
-
-                <video
-                    id="loveVideo"
-                    controls
-                    autoplay
-                    playsinline
-                    style="
-                        width:100%;
-                        height:100%;
-                        object-fit:contain;
-                    "
-                >
-                    <source
-                        src="images/love-video.mp4"
-                        type="video/mp4"
-                    >
-                </video>
-
-            </div>
-        `;
-
-
-        const video =
-            document.getElementById("loveVideo");
-
-
-        video.onended = function () {
-
-            document.body.innerHTML = `
-
-                <div style="
-                    min-height:100vh;
-                    display:flex;
-                    flex-direction:column;
-                    justify-content:center;
-                    align-items:center;
-                    text-align:center;
-                    background:
-                    linear-gradient(
-                        rgba(0,0,0,.55),
-                        rgba(0,0,0,.55)
-                    ),
-                    url('images/rose-bg.jpg');
-                    background-size:cover;
-                    background-position:center;
-                    color:white;
-                    padding:20px;
-                ">
-
-                    <h1>
-                        ❤️ I Knew It ❤️
-                    </h1>
-
-                    <h2>
-                        🎂 Happy Birthday Madam 🎂
-                    </h2>
-
-                    <p>
-                        Thank you for being
-                        the most beautiful
-                        part of my life.
-                    </p>
-
-                    <p>
-                        You are my happiness,
-                        my peace,
-                        and my favorite person
-                        in this world.
-                    </p>
-
-                    <h2>
-                        Happy Birthday ❤️
-                    </h2>
+                    <button id="noBtn">
+                        Nothing Nothing 😜
+                    </button>
 
                 </div>
-            `;
 
-        };
+            </div>
 
-    };
+        </div>
 
-}
+    </section>
+
+
+    <!-- =========================================
+         🎉 CONFETTI LIBRARY
+    ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+
+    <!-- =========================================
+         🎂 YOUR JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
