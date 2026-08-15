@@ -47,7 +47,9 @@ body {
 }
 
 
-/* Grid like the video */
+/* =====================================================
+   GRID
+===================================================== */
 
 .intro-grid {
     position: absolute;
@@ -202,19 +204,21 @@ body {
 
 
 /* =====================================================
-   🎉 HAPPY BIRTHDAY TEXT
+   🎉 HAPPY BIRTHDAY
 ===================================================== */
 
 .birthday-title {
     text-align: left;
 
-    font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+    font-family:
+        "Arial Rounded MT Bold",
+        Arial,
+        sans-serif;
 
     font-weight: 900;
 
     line-height: 0.9;
 }
-
 
 .happy-word,
 .birthday-word {
@@ -261,7 +265,7 @@ body {
 }
 
 
-/* Individual timing */
+/* LETTER TIMING */
 
 .happy-word span:nth-child(1) {
     animation-delay: 0.2s;
@@ -282,7 +286,6 @@ body {
 .happy-word span:nth-child(5) {
     animation-delay: 0.6s;
 }
-
 
 .birthday-word span:nth-child(1) {
     animation-delay: 0.8s;
@@ -315,7 +318,6 @@ body {
 .birthday-word span:nth-child(8) {
     animation-delay: 1.5s;
 }
-
 
 @keyframes letterPop {
 
@@ -482,20 +484,18 @@ body {
 
     from {
         opacity: 0;
-        transform:
-            scale(0.7);
+        transform: scale(0.7);
     }
 
     to {
         opacity: 1;
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 }
 
 
 /* =====================================================
-   🧸 RIGHT SIDE
+   🎈 RIGHT SIDE
 ===================================================== */
 
 .intro-right {
@@ -520,14 +520,12 @@ body {
 
     from {
         opacity: 0;
-        transform:
-            translateX(100px);
+        transform: translateX(100px);
     }
 
     to {
         opacity: 1;
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 }
 
@@ -587,7 +585,7 @@ body {
 
 
 /* =====================================================
-   🧸 BEAR
+   ❤️ LARGE SUMAIYA PHOTO
 ===================================================== */
 
 .bear-circle {
@@ -625,6 +623,7 @@ body {
 
     from {
         opacity: 0;
+
         transform:
             scale(0.5)
             rotate(-8deg);
@@ -632,6 +631,7 @@ body {
 
     to {
         opacity: 1;
+
         transform:
             scale(1)
             rotate(0);
@@ -639,8 +639,17 @@ body {
 }
 
 
+/* =====================================================
+   ❤️ PHOTO
+===================================================== */
+
 .bear {
-    font-size: 175px;
+    width: 260px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
 
     filter:
         drop-shadow(
@@ -651,6 +660,19 @@ body {
     animation:
         bearBounce 2s
         infinite ease-in-out;
+
+    flex-shrink: 0;
+}
+
+.bear img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
 }
 
 @keyframes bearBounce {
@@ -666,13 +688,20 @@ body {
 }
 
 
+/* =====================================================
+   🎂 CAKE
+===================================================== */
+
 .bear-cake {
     position: absolute;
 
-    right: 45px;
-    bottom: 115px;
+    right: 20px;
+
+    bottom: 70px;
 
     font-size: 45px;
+
+    z-index: 10;
 
     animation:
         cakeBounce 1.5s
@@ -735,7 +764,9 @@ body {
 
     0%,
     100% {
-        transform: translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0);
     }
 
     50% {
@@ -768,6 +799,8 @@ body {
     color: #222;
 
     font-weight: bold;
+
+    white-space: nowrap;
 
     box-shadow:
         0 4px 0 #c93955;
@@ -833,7 +866,9 @@ body {
 
 #birthdayIntro.hide {
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 }
 
@@ -852,7 +887,7 @@ body {
 
 
 /* =====================================================
-   ❤️ YOUR EXISTING HERO
+   ❤️ HERO
 ===================================================== */
 
 .hero {
@@ -885,6 +920,7 @@ body {
 
 .hero p {
     font-size: 20px;
+
     max-width: 700px;
 }
 
@@ -919,7 +955,6 @@ body {
     display: none;
 }
 
-
 .message {
     line-height: 1.8;
 
@@ -933,7 +968,6 @@ body {
 
     font-size: 18px;
 }
-
 
 .gallery {
     background: #111;
@@ -949,6 +983,7 @@ body {
 
 .gallery img {
     width: 250px;
+
     height: 300px;
 
     object-fit: cover;
@@ -964,7 +999,6 @@ body {
     transform: scale(1.05);
 }
 
-
 .countdown {
     background: #24141e;
 }
@@ -976,7 +1010,6 @@ body {
 
     margin-top: 20px;
 }
-
 
 .love {
     background: #171717;
@@ -1012,7 +1045,11 @@ body {
 
         overflow-y: auto;
 
-        padding-top: 80px;
+        overflow-x: hidden;
+
+        padding-top: 70px;
+
+        padding-bottom: 50px;
     }
 
 
@@ -1052,6 +1089,7 @@ body {
 
     .party-hat {
         left: auto;
+
         right: 12%;
 
         top: -15px;
@@ -1073,32 +1111,60 @@ body {
     }
 
 
-    .intro-right {
-        width: 100%;
-
-        height: 390px;
-
-        margin-top: 30px;
+    #clickHereBtn {
+        margin-left: auto;
+        margin-right: auto;
     }
 
 
+    .intro-right {
+        width: 100%;
+
+        height: 410px;
+
+        margin-top: 30px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* =================================================
+       📱 MOBILE LARGE PHOTO
+    ================================================= */
+
     .bear-circle {
         width: 230px;
+
         height: 300px;
+
+        border-width: 3px;
     }
 
 
     .bear {
-        font-size: 130px;
+        width: 195px;
+
+        height: 255px;
+    }
+
+
+    .bear img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        object-position: center;
     }
 
 
     .bear-cake {
-        right: 25px;
+        right: 12px;
 
-        bottom: 90px;
+        bottom: 60px;
 
-        font-size: 35px;
+        font-size: 32px;
     }
 
 
@@ -1107,8 +1173,31 @@ body {
     }
 
 
+    .balloon-one {
+        top: 20px;
+
+        left: 8%;
+    }
+
+
+    .balloon-two {
+        top: 120px;
+
+        right: 3%;
+    }
+
+
+    .balloon-three {
+        bottom: 35px;
+
+        right: 8%;
+    }
+
+
     .cutie-label {
         padding: 8px 35px;
+
+        bottom: -5px;
     }
 
 
@@ -1119,17 +1208,142 @@ body {
 
     .bunting span {
         border-left-width: 12px;
+
         border-right-width: 12px;
+
         border-top-width: 25px;
+    }
+
+
+    .star {
+        font-size: 18px;
+    }
+
+
+    .intro-heart {
+        font-size: 20px;
+    }
+
+
+    /* =================================================
+       MAIN WEBSITE MOBILE
+    ================================================= */
+
+    .hero {
+        padding: 25px 15px;
+    }
+
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+
+    .hero p {
+        font-size: 17px;
+    }
+
+
+    .hero button {
+        font-size: 16px;
+
+        padding: 13px 23px;
     }
 
 
     .gallery img {
         width: 90%;
+
         height: 350px;
+
+        margin: 10px auto;
     }
 
+
+    .message p {
+        font-size: 17px;
+    }
+
+
+    .card {
+        width: 90%;
+
+        max-width: 300px;
+    }
 }
+
+
+/* =====================================================
+   📱 SMALL PHONES
+===================================================== */
+
+@media (max-width: 400px) {
+
+    #birthdayIntro {
+        padding-top: 60px;
+    }
+
+
+    .happy-word span {
+        font-size: 40px;
+    }
+
+
+    .birthday-word span {
+        font-size: 36px;
+    }
+
+
+    .intro-date {
+        min-width: 220px;
+
+        font-size: 14px;
+    }
+
+
+    .intro-right {
+        height: 360px;
+
+        margin-top: 20px;
+    }
+
+
+    .bear-circle {
+        width: 205px;
+
+        height: 270px;
+    }
+
+
+    .bear {
+        width: 175px;
+
+        height: 225px;
+    }
+
+
+    .bear-cake {
+        right: 8px;
+
+        bottom: 50px;
+
+        font-size: 28px;
+    }
+
+
+    .intro-balloon {
+        font-size: 45px;
+    }
+
+
+    .cutie-label {
+        font-size: 14px;
+
+        padding: 7px 28px;
+    }
+}
+
+
 /* =====================================================
    🎁 SURPRISE PAGE
 ===================================================== */
@@ -1157,36 +1371,28 @@ body {
             #2d1b1b 45%,
             #0f0f0f
         );
-
 }
-
 
 .surprise-content {
 
     max-width: 700px;
 
     width: 100%;
-
 }
-
 
 .surprise-content h1 {
 
     font-size: 42px;
 
     margin-bottom: 25px;
-
 }
-
 
 .surprise-content p {
 
     font-size: 20px;
 
     line-height: 1.7;
-
 }
-
 
 #giftBtn {
 
@@ -1207,14 +1413,10 @@ body {
     cursor: pointer;
 
     transition: 0.3s;
-
 }
 
-
 #giftBtn:hover {
-
     transform: scale(1.08);
-
 }
 
 
@@ -1234,17 +1436,13 @@ body {
 
     margin-top: 35px;
 
-    animation: questionAppear 0.5s ease;
-
+    animation:
+        questionAppear 0.5s ease;
 }
-
 
 #questionBox h2 {
-
     font-size: 30px;
-
 }
-
 
 .answer-buttons {
 
@@ -1257,9 +1455,7 @@ body {
     gap: 20px;
 
     margin-top: 20px;
-
 }
-
 
 #yesBtn,
 #noBtn {
@@ -1273,25 +1469,20 @@ body {
     font-size: 17px;
 
     cursor: pointer;
-
 }
-
 
 #yesBtn {
 
     background: #ff69b4;
 
     color: white;
-
 }
-
 
 #noBtn {
 
     background: white;
 
     color: #222;
-
 }
 
 
@@ -1312,9 +1503,7 @@ body {
     justify-content: center;
 
     align-items: center;
-
 }
-
 
 #loveVideo {
 
@@ -1323,7 +1512,6 @@ body {
     height: 100%;
 
     object-fit: contain;
-
 }
 
 
@@ -1361,23 +1549,15 @@ body {
     background-size: cover;
 
     background-position: center;
-
 }
-
 
 #finalScreen h1 {
-
     font-size: 45px;
-
 }
-
 
 #finalScreen h2 {
-
     font-size: 27px;
-
 }
-
 
 #finalScreen p {
 
@@ -1386,7 +1566,6 @@ body {
     font-size: 20px;
 
     line-height: 1.7;
-
 }
 
 
@@ -1397,66 +1576,48 @@ body {
 @keyframes questionAppear {
 
     from {
-
         opacity: 0;
 
-        transform: translateY(30px);
-
+        transform:
+            translateY(30px);
     }
 
     to {
-
         opacity: 1;
 
-        transform: translateY(0);
-
+        transform:
+            translateY(0);
     }
-
 }
 
 
 /* =====================================================
-   📱 MOBILE
+   📱 SURPRISE MOBILE
 ===================================================== */
 
 @media (max-width: 600px) {
 
     .surprise-page {
-
         padding: 25px 15px;
-
     }
-
 
     .surprise-content h1 {
-
         font-size: 32px;
-
     }
-
 
     .surprise-content p {
-
         font-size: 17px;
-
     }
-
 
     #questionBox h2 {
-
         font-size: 24px;
-
     }
 
-
     .answer-buttons {
-
         gap: 12px;
 
         flex-wrap: wrap;
-
     }
-
 
     #yesBtn,
     #noBtn {
@@ -1464,28 +1625,17 @@ body {
         font-size: 16px;
 
         padding: 13px 20px;
-
     }
-
 
     #finalScreen h1 {
-
         font-size: 35px;
-
     }
-
 
     #finalScreen h2 {
-
         font-size: 22px;
-
     }
-
 
     #finalScreen p {
-
         font-size: 17px;
-
     }
-
 }
