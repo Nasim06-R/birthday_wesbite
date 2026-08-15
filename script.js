@@ -366,17 +366,20 @@ function checkBirthday() {
 
 
     /*
-       🎂 22 August
+       🎂 BIRTHDAY = 22 AUGUST
 
        January = 1
+       February = 2
+       March = 3
+       April = 4
+       May = 5
+       June = 6
+       July = 7
        August = 8
-
-       Testing ke liye abhi 15 August
-       par bhi unlock rakha gaya hai.
     */
 
     if (
-        day === ww &&
+        day === 22 &&
         month === 8
     ) {
 
@@ -401,14 +404,18 @@ function checkBirthday() {
    🎂 COUNTDOWN
 ===================================================== */
 
+/*
+   🎂 Birthday:
+   22 August 2026
+
+   JavaScript months start from 0:
+   January = 0
+   August = 7
+*/
+
 const birthday =
     new Date(2026, 7, 22);
 
-
-/*
-   August = 7
-   because JavaScript months start at 0
-*/
 
 
 function updateCountdown() {
@@ -430,6 +437,10 @@ function updateCountdown() {
         birthday - now;
 
 
+    /*
+       🎉 Birthday reached
+    */
+
     if (diff <= 0) {
 
         timer.innerHTML =
@@ -440,12 +451,20 @@ function updateCountdown() {
     }
 
 
+    /*
+       📅 Days
+    */
+
     const days =
         Math.floor(
             diff /
             (1000 * 60 * 60 * 24)
         );
 
+
+    /*
+       ⏰ Hours
+    */
 
     const hours =
         Math.floor(
@@ -456,6 +475,10 @@ function updateCountdown() {
         );
 
 
+    /*
+       ⏱️ Minutes
+    */
+
     const minutes =
         Math.floor(
             (
@@ -464,6 +487,10 @@ function updateCountdown() {
             ) % 60
         );
 
+
+    /*
+       ⏱️ Seconds
+    */
 
     const seconds =
         Math.floor(
@@ -474,14 +501,26 @@ function updateCountdown() {
         );
 
 
+    /*
+       ❤️ Display countdown
+    */
+
     timer.innerHTML =
         `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
 
 }
 
 
+/*
+   Start countdown immediately
+*/
+
 updateCountdown();
 
+
+/*
+   Update every second
+*/
 
 setInterval(
     updateCountdown,
