@@ -83,8 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
     /* =================================================
        🎁 OPEN MY HEART
+       → NEW QUESTION PAGE
     ================================================= */
 
     const giftBtn =
@@ -97,26 +99,14 @@ document.addEventListener("DOMContentLoaded", function () {
             "click",
             function () {
 
-                const questionBox =
-                    document.getElementById(
-                        "questionBox"
-                    );
-
-
-                if (questionBox) {
-
-                    questionBox.style.display =
-                        "flex";
-
-                }
-
-
-                createBalloons();
+                window.location.href =
+                    "question.html";
 
             }
         );
 
     }
+
 
 
     /* =================================================
@@ -258,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
     /* =================================================
        ❤️ YES / SOMETHING SOMETHING
     ================================================= */
@@ -270,146 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         yesBtn.addEventListener(
             "click",
-            function () {
-
-
-                /*
-                   🎬 VIDEO SCREEN
-                */
-
-                document.body.innerHTML = `
-
-                    <div
-                        id="videoScreen"
-                        style="
-                            width:100vw;
-                            height:100vh;
-                            background:black;
-                            display:flex;
-                            justify-content:center;
-                            align-items:center;
-                            overflow:hidden;
-                        "
-                    >
-
-                        <video
-                            id="loveVideo"
-                            controls
-                            autoplay
-                            playsinline
-                            style="
-                                width:100%;
-                                height:100%;
-                                object-fit:contain;
-                            "
-                        >
-
-                            <source
-                                src="images/love-video.mp4"
-                                type="video/mp4"
-                            >
-
-                            Your browser does not support
-                            this video.
-
-                        </video>
-
-                    </div>
-
-                `;
-
-
-                const video =
-                    document.getElementById(
-                        "loveVideo"
-                    );
-
-
-                if (!video) {
-                    return;
-                }
-
-
-                /*
-                   🎬 Video finished
-                */
-
-                video.onended =
-                    function () {
-
-
-                        document.body.innerHTML = `
-
-                            <div
-                                id="finalScreen"
-                                style="
-                                    min-height:100vh;
-
-                                    display:flex;
-
-                                    flex-direction:column;
-
-                                    justify-content:center;
-
-                                    align-items:center;
-
-                                    text-align:center;
-
-                                    padding:30px;
-
-                                    box-sizing:border-box;
-
-                                    color:white;
-
-                                    background:
-                                    linear-gradient(
-                                        rgba(0,0,0,.55),
-                                        rgba(0,0,0,.55)
-                                    ),
-                                    url('images/rose-bg.jpg');
-
-                                    background-size:cover;
-
-                                    background-position:center;
-                                "
-                            >
-
-                                <h1>
-                                    ❤️ I Knew It ❤️
-                                </h1>
-
-
-                                <h2>
-                                    🎂 Happy Birthday Madam 🎂
-                                </h2>
-
-
-                                <p>
-                                    Thank you for being
-                                    the most beautiful
-                                    part of my life.
-                                </p>
-
-
-                                <p>
-                                    You are my happiness,
-                                    my peace,
-                                    and my favorite person
-                                    in this world.
-                                </p>
-
-
-                                <h2>
-                                    Happy Birthday ❤️
-                                </h2>
-
-                            </div>
-
-                        `;
-
-                    };
-
-            }
+            playLoveVideo
         );
 
     }
@@ -518,10 +370,13 @@ function checkBirthday() {
 
        January = 1
        August = 8
+
+       Testing ke liye abhi 15 August
+       par bhi unlock rakha gaya hai.
     */
 
     if (
-        day === 22 &&
+        day === 15 &&
         month === 8
     ) {
 
@@ -547,7 +402,7 @@ function checkBirthday() {
 ===================================================== */
 
 const birthday =
-    new Date(2026, 7, 22);
+    new Date(2026, 7, 15);
 
 
 /*
@@ -632,3 +487,171 @@ setInterval(
     updateCountdown,
     1000
 );
+
+
+
+/* =====================================================
+   ❤️ SOMETHING SOMETHING
+   QUESTION PAGE
+===================================================== */
+
+function somethingClicked() {
+
+    playLoveVideo();
+
+}
+
+
+
+/* =====================================================
+   😜 NOTHING NOTHING
+===================================================== */
+
+function nothingClicked() {
+
+    alert(
+        "Achaaa 😜 Nothing Nothing? Soch lo phir se ❤️"
+    );
+
+}
+
+
+
+/* =====================================================
+   🎬 LOVE VIDEO
+===================================================== */
+
+function playLoveVideo() {
+
+    document.body.innerHTML = `
+
+        <div
+            id="videoScreen"
+            style="
+                width:100vw;
+                height:100vh;
+                background:black;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                overflow:hidden;
+            "
+        >
+
+            <video
+                id="loveVideo"
+                controls
+                autoplay
+                playsinline
+                style="
+                    width:100%;
+                    height:100%;
+                    object-fit:contain;
+                "
+            >
+
+                <source
+                    src="images/love-video.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support
+                this video.
+
+            </video>
+
+        </div>
+
+    `;
+
+
+    const video =
+        document.getElementById(
+            "loveVideo"
+        );
+
+
+    if (!video) {
+        return;
+    }
+
+
+    /*
+       🎬 Video finished
+    */
+
+    video.onended =
+        function () {
+
+            document.body.innerHTML = `
+
+                <div
+                    id="finalScreen"
+                    style="
+                        min-height:100vh;
+
+                        display:flex;
+
+                        flex-direction:column;
+
+                        justify-content:center;
+
+                        align-items:center;
+
+                        text-align:center;
+
+                        padding:30px;
+
+                        box-sizing:border-box;
+
+                        color:white;
+
+                        background:
+                        linear-gradient(
+                            rgba(0,0,0,.55),
+                            rgba(0,0,0,.55)
+                        ),
+                        url('images/rose-bg.jpg');
+
+                        background-size:cover;
+
+                        background-position:center;
+                    "
+                >
+
+                    <h1>
+                        ❤️ I Knew It ❤️
+                    </h1>
+
+
+                    <h2>
+                        🎂 Happy Birthday Madam 🎂
+                    </h2>
+
+
+                    <p>
+                        Thank you for being
+                        the most beautiful
+                        part of my life.
+                    </p>
+
+
+                    <p>
+                        You are my happiness,
+                        my peace,
+                        and my favorite person
+                        in this world.
+                    </p>
+
+
+                    <h2>
+                        Happy Birthday ❤️
+                    </h2>
+
+                </div>
+
+            `;
+
+        };
+
+}
