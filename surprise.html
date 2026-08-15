@@ -1,434 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤️</title>
 
-<style>
+    <meta charset="UTF-8">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-body{
+    <title>Happy Birthday ❤️</title>
 
-font-family:Georgia,serif;
 
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url("images/rose-bg.jpg");
+    <style>
 
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-color:white;
 
-overflow-x:hidden;
+        html {
+            scroll-behavior: smooth;
+        }
 
-}
 
-.hero{
+        body {
 
-min-height:100vh;
+            font-family: Georgia, serif;
 
-display:flex;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.55),
+                    rgba(0,0,0,.55)
+                ),
+                url("images/rose-bg.jpg");
 
-flex-direction:column;
+            background-size: cover;
 
-justify-content:center;
+            background-position: center;
 
-align-items:center;
+            background-attachment: fixed;
 
-padding:30px;
+            color: white;
 
-text-align:center;
+            overflow-x: hidden;
 
-}
+        }
 
-.hero h1{
 
-font-size:55px;
+        /* =====================================================
+           🎂 BIRTHDAY / LETTER
+        ===================================================== */
 
-margin-bottom:20px;
+        .hero {
 
-}
+            min-height: 100vh;
 
-.hero h2{
+            display: flex;
 
-margin-top:30px;
+            flex-direction: column;
 
-margin-bottom:20px;
+            justify-content: center;
 
-}
+            align-items: center;
 
-.hero p{
+            text-align: center;
 
-max-width:700px;
+            padding: 40px 20px;
 
-font-size:20px;
+        }
 
-line-height:1.8;
 
-}
+        .hero h1 {
 
-.hero img{
+            font-size: clamp(
+                36px,
+                6vw,
+                55px
+            );
 
-width:320px;
+            margin-bottom: 20px;
 
-border-radius:20px;
+        }
 
-margin-top:30px;
 
-box-shadow:0 0 25px white;
+        .hero h2 {
 
-}
+            margin-top: 30px;
 
-.final{
+            margin-bottom: 20px;
 
-min-height:100vh;
+            font-size: clamp(
+                24px,
+                4vw,
+                32px
+            );
 
-display:flex;
+        }
 
-justify-content:center;
 
-align-items:center;
+        .hero p {
 
-flex-direction:column;
+            max-width: 700px;
 
-position:relative;
+            font-size: clamp(
+                17px,
+                3vw,
+                20px
+            );
 
-}
+            line-height: 1.8;
 
-button{
+        }
 
-padding:15px 30px;
 
-font-size:18px;
+        /* =====================================================
+           📸 PHOTO
+        ===================================================== */
 
-border:none;
+        .hero img {
 
-border-radius:30px;
+            width: 320px;
 
-cursor:pointer;
+            max-width: 90%;
 
-margin:10px;
+            height: auto;
 
-}
+            margin-top: 30px;
 
-#giftBtn{
+            border-radius: 20px;
 
-background:white;
+            object-fit: cover;
 
-color:#ff4f81;
+            box-shadow:
+                0 0 25px rgba(
+                    255,
+                    255,
+                    255,
+                    .9
+                );
 
-}
+        }
 
-#yesBtn{
 
-background:#ff4f81;
+        /* =====================================================
+           🎁 ONE LAST GIFT
+        ===================================================== */
 
-color:white;
+        .final {
 
-}
+    min-height: auto;
 
-#noBtn{
+    display: flex;
 
-background:white;
+    flex-direction: column;
 
-color:#ff4f81;
+    justify-content: center;
 
-position:absolute;
+    align-items: center;
 
-}
+    text-align: center;
 
-#questionBox{
-
-display:none;
-
-margin-top:40px;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:15px;
-
-}
-
-@media(max-width:600px){
-
-.hero h1{
-
-font-size:38px;
-
-}
-
-.hero p{
-
-font-size:18px;
+    padding: 25px 20px 50px;
 
 }
 
-#noBtn{
+        .final h1 {
 
-position:relative;
+            font-size: clamp(
+                38px,
+                6vw,
+                55px
+            );
 
-}
+            margin-bottom: 35px;
 
-}
+        }
 
-</style>
 
-</head>
+        /* =====================================================
+           ❤️ OPEN MY HEART
+        ===================================================== */
 
-<body>
+        #giftBtn {
 
-<section class="hero">
+            padding: 16px 32px;
 
-<h1>🎉 Happy Birthday Madam ❤️</h1>
+            border: none;
 
-<p>✨ Today Is Your Day ✨</p>
+            border-radius: 35px;
 
-<h2>💌 A Letter For You</h2>
+            background: white;
 
-<p>
+            color: #ff4f81;
 
-Thank you for being part of my life.
+            font-family: Georgia, serif;
 
-Every moment with you is special.
+            font-size: 19px;
 
-Your smile brightens my darkest days.
+            font-weight: bold;
 
-I wish you endless happiness,
+            cursor: pointer;
 
-good health and success.
+            box-shadow:
+                0 5px 0 #d8d8d8;
 
-Happy Birthday ❤️
+            transition: .25s;
 
-</p>
+            -webkit-tap-highlight-color:
+                transparent;
 
-<img src="images/photo1.jpg">
+        }
 
-</section>
 
-<section class="final">
+        #giftBtn:hover {
 
-<h1>🎁 One Last Gift</h1>
+            transform: translateY(-4px)
+                       scale(1.05);
 
-<button id="giftBtn">
+            box-shadow:
+                0 8px 0 #d8d8d8;
 
-Open My Heart ❤️
+        }
 
-</button>
 
-<div id="questionBox">
+        #giftBtn:active {
 
-<h2>💖 One Last Question 💖</h2>
+            transform:
+                translateY(3px);
 
-<p>Ajke bole dao tahole...❤️</p>
+            box-shadow:
+                0 2px 0 #d8d8d8;
 
-<button id="yesBtn">
+        }
 
-Something Something ❤️
 
-</button>
+        /* =====================================================
+           🎈 BALLOONS
+        ===================================================== */
 
-<button id="noBtn">
+        .balloon {
 
-Nothing Nothing 😜
+            position: fixed;
 
-</button>
+            bottom: -70px;
 
-</div>
+            font-size: 40px;
 
-</section>
-<script>
+            pointer-events: none;
 
-function createBalloons(){
+            z-index: 9999;
 
-    for(let i=0;i<15;i++){
+            animation:
+                balloonUp 5s linear forwards;
 
-        const b=document.createElement("div");
+        }
 
-        b.innerHTML="🎈";
 
-        b.style.position="fixed";
-        b.style.left=Math.random()*100+"vw";
-        b.style.bottom="-60px";
-        b.style.fontSize="40px";
-        b.style.pointerEvents="none";
-        b.style.zIndex="9999";
+        @keyframes balloonUp {
 
-        document.body.appendChild(b);
+            from {
 
-        let y=-60;
+                transform:
+                    translateY(0);
 
-        const fly=setInterval(()=>{
-
-            y+=4;
-
-            b.style.bottom=y+"px";
-
-            if(y>window.innerHeight+100){
-
-                clearInterval(fly);
-
-                b.remove();
+                opacity: 1;
 
             }
 
-        },20);
+            to {
 
-    }
+                transform:
+                    translateY(
+                        -120vh
+                    );
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           📱 MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                background-attachment:
+                    scroll;
+
+            }
+
+
+            .hero {
+
+                padding:
+                    35px 15px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .hero h2 {
+
+                font-size: 24px;
+
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+
+                line-height: 1.7;
+
+            }
+
+
+            .hero img {
+
+                width: 90%;
+
+                max-width: 320px;
+
+            }
+
+.final {
+
+    padding: 15px 15px 40px;
 
 }
 
-document.getElementById("giftBtn").onclick=function(){
 
-    document.getElementById("questionBox").style.display="flex";
+            .final h1 {
 
-    createBalloons();
+                font-size: 36px;
 
-};
+                margin-bottom: 30px;
 
-const noBtn=document.getElementById("noBtn");
+            }
 
-noBtn.addEventListener("mouseover",()=>{
 
-    if(window.innerWidth<600)return;
+            #giftBtn {
 
-    noBtn.style.left=Math.random()*(window.innerWidth-200)+"px";
+                font-size: 17px;
 
-    noBtn.style.top=Math.random()*(window.innerHeight-150)+"px";
+                padding:
+                    14px 27px;
 
-});
+            }
 
-document.getElementById("yesBtn").onclick=function(){
+        }
 
-document.body.innerHTML=`
+    </style>
 
-<div style="
+</head>
 
-width:100vw;
 
-height:100vh;
+<body>
 
-background:black;
 
-display:flex;
+    <!-- =====================================================
+         🎂 BIRTHDAY MESSAGE
+    ===================================================== -->
 
-justify-content:center;
+    <section class="hero">
 
-align-items:center;
+        <h1>
+            🎉 Happy Birthday Madam ❤️
+        </h1>
 
-">
 
-<video
+        <p>
+            ✨ Today Is Your Day ✨
+        </p>
 
-id="loveVideo"
 
-controls
+        <h2>
+            💌 A Letter For You
+        </h2>
 
-autoplay
 
-playsinline
+        <p>
 
-style="width:100%;height:100%;object-fit:contain;"
+            Thank you for being part of my life.
 
->
+            <br><br>
 
-<source src="videos/surprise.mp4" type="video/mp4">
+            Every moment with you is special.
 
-</video>
+            <br><br>
 
-</div>
+            Your smile brightens my darkest days.
 
-`;
+            <br><br>
 
-const video=document.getElementById("loveVideo");
+            I wish you endless happiness,
 
-video.onended=function(){
+            good health and success.
 
-document.body.innerHTML=`
+            <br><br>
 
-<div style="
+            Happy Birthday ❤️
 
-min-height:100vh;
+        </p>
 
-display:flex;
 
-flex-direction:column;
+        <img
+            src="images/photo13.jpg"
+            alt="Our Memory"
+        >
 
-justify-content:center;
+    </section>
 
-align-items:center;
 
-text-align:center;
 
-background:
+    <!-- =====================================================
+         🎁 ONE LAST GIFT
+    ===================================================== -->
 
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    <section class="final">
 
-url('images/rose-bg.jpg');
+        <h1>
+            🎁 One Last Gift
+        </h1>
 
-background-size:cover;
 
-color:white;
+        <button id="giftBtn">
 
-padding:20px;
+            Open My Heart ❤️
 
-">
+        </button>
 
-<h1 style="font-size:60px;">
+    </section>
 
-❤️ I Knew It ❤️
 
-</h1>
 
-<h2>
+    <!-- =====================================================
+         📜 SCRIPT
+    ===================================================== -->
 
-🎂 Happy Birthday Madam 🎂
+    <script>
 
-</h2>
 
-<p style="max-width:700px;font-size:22px;line-height:1.8;">
+        /* =====================================================
+           🎈 BALLOONS
+        ===================================================== */
 
-Thank you for being the most beautiful part of my life.
+        function createBalloons() {
 
-You are my happiness, my peace,
+            for (
+                let i = 0;
+                i < 15;
+                i++
+            ) {
 
-and my favorite person in this world.
+                const balloon =
+                    document.createElement(
+                        "div"
+                    );
 
- Tomar songe katano sei 8th August 2026. Sei 2 Ghonta amar life er sob theke best 2 Ghonta chilo,
 
- Sedin bari aste aste ami sudhu hesechi ar vebechi I am the most Luckiest person in the world,
+                balloon.className =
+                    "balloon";
 
- Ami tomar songe sarata jibon katate chaichi. Sukh dukkho sob dujon mile vag kore nebo. Just eke 
 
- oporke chere jabona. Valobasa ta ami evabei bojhate parbo. R loyal theke proman kore debo. 
+                balloon.innerHTML =
+                    "🎈";
 
- And at last but not the least - 
- 
- Once Again My Beautiful Madam,
- <br><br>
 
-Happy Birthday ❤️
+                balloon.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
 
-</p>
 
-</div>
+                balloon.style.animationDelay =
+                    Math.random() *
+                    1.5 +
+                    "s";
 
-`;
 
-};
+                document.body.appendChild(
+                    balloon
+                );
 
-};
 
-</script>
+                setTimeout(
+                    function () {
+
+                        balloon.remove();
+
+                    },
+                    7000
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           ❤️ OPEN MY HEART
+           → QUESTION.HTML
+        ===================================================== */
+
+        const giftBtn =
+            document.getElementById(
+                "giftBtn"
+            );
+
+
+        giftBtn.addEventListener(
+            "click",
+            function () {
+
+
+                createBalloons();
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "question.html";
+
+                    },
+                    500
+                );
+
+            }
+        );
+
+
+    </script>
+
 
 </body>
 
