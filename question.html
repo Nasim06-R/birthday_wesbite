@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ajke Bole Dao ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+
+            font-family: Georgia, serif;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.55),
+                    rgba(0,0,0,.55)
+                ),
+                url("images/rose-bg.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ================================
+           ❤️ QUESTION PAGE
+        ================================= */
+
+        .question-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+
+        .question-content {
+
+            width: 100%;
+            max-width: 650px;
+        }
+
+
+        .question-content p {
+
+            font-size: clamp(25px, 5vw, 42px);
+
+            line-height: 1.4;
+
+            font-weight: bold;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* ================================
+           ❤️ BUTTONS
+        ================================= */
+
+        button {
+
+            display: block;
+
+            width: 90%;
+            max-width: 450px;
+
+            margin: 20px auto;
+
+            padding: 17px 25px;
+
+            border: none;
+
+            border-radius: 35px;
+
+            font-size: 19px;
+
+            font-family: Georgia, serif;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        #yesBtn {
+
+            background: #ff4f81;
+
+            color: white;
+
+            box-shadow:
+                0 5px 0 #d93669;
+        }
+
+
+        #noBtn {
+
+            background: white;
+
+            color: #ff4f81;
+
+            box-shadow:
+                0 5px 0 #cccccc;
+
+            position: relative;
+
+            touch-action: none;
+        }
+
+
+        /* ================================
+           📱 MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .question-page {
+                padding: 20px 15px;
+            }
+
+            .question-content p {
+
+                font-size: 27px;
+
+                margin-bottom: 30px;
+            }
+
+            button {
+
+                width: 95%;
+
+                font-size: 17px;
+
+                padding: 16px 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         ❤️ AJKE BOLE DAO
+    ================================= -->
+
+    <section class="question-page">
+
+        <div class="question-content">
+
+            <p>
+                Ajke bole dao tahole... ❤️
+            </p>
+
+
+            <button id="yesBtn">
+                Something Something ❤️
+            </button>
+
+
+            <button id="noBtn">
+                Nothing Nothing 😜
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <script>
+
+
+        /* =================================
+           😜 NOTHING NOTHING
+           MOBILE + DESKTOP
+        ================================= */
+
+        const noBtn =
+            document.getElementById("noBtn");
+
+
+        function moveNoButton(event) {
+
+            if (event) {
+                event.preventDefault();
+            }
+
+
+            const padding = 15;
+
+            const buttonWidth =
+                noBtn.offsetWidth || 200;
+
+            const buttonHeight =
+                noBtn.offsetHeight || 55;
+
+
+            const maxX =
+                window.innerWidth -
+                buttonWidth -
+                padding;
+
+
+            const maxY =
+                window.innerHeight -
+                buttonHeight -
+                padding;
+
+
+            const randomX =
+                padding +
+                Math.random() *
+                Math.max(0, maxX - padding);
+
+
+            const randomY =
+                padding +
+                Math.random() *
+                Math.max(0, maxY - padding);
+
+
+            noBtn.style.position = "fixed";
+
+            noBtn.style.left =
+                randomX + "px";
+
+            noBtn.style.top =
+                randomY + "px";
+
+            noBtn.style.margin = "0";
+
+            noBtn.style.zIndex = "999999";
+        }
+
+
+        /* Desktop */
+
+        noBtn.addEventListener(
+            "mouseenter",
+            moveNoButton
+        );
+
+
+        /* Mobile */
+
+        noBtn.addEventListener(
+            "touchstart",
+            moveNoButton,
+            {
+                passive: false
+            }
+        );
+
+
+        /* Click */
+
+        noBtn.addEventListener(
+            "click",
+            moveNoButton
+        );
+
+
+
+        /* =================================
+           ❤️ SOMETHING SOMETHING
+           → VIDEO
+        ================================= */
+
+        const yesBtn =
+            document.getElementById("yesBtn");
+
+
+        yesBtn.addEventListener(
+            "click",
+            function () {
+
+
+                document.body.innerHTML = `
+
+                    <div
+                        style="
+                            width:100vw;
+                            height:100vh;
+                            background:black;
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+                            overflow:hidden;
+                        "
+                    >
+
+                        <video
+                            id="loveVideo"
+                            controls
+                            autoplay
+                            playsinline
+                            style="
+                                width:100%;
+                                height:100%;
+                                object-fit:contain;
+                            "
+                        >
+
+                            <source
+                                src="videos/surprise.mp4"
+                                type="video/mp4"
+                            >
+
+                        </video>
+
+                    </div>
+
+                `;
+
+
+                const video =
+                    document.getElementById(
+                        "loveVideo"
+                    );
+
+
+                /* =================================
+                   🎬 VIDEO FINISHED
+                ================================= */
+
+                video.onended =
+                    function () {
+
+
+                        document.body.innerHTML = `
+
+                            <div
+                                style="
+                                    min-height:100vh;
+
+                                    display:flex;
+
+                                    flex-direction:column;
+
+                                    justify-content:center;
+
+                                    align-items:center;
+
+                                    text-align:center;
+
+                                    background:
+                                        linear-gradient(
+                                            rgba(0,0,0,.55),
+                                            rgba(0,0,0,.55)
+                                        ),
+                                        url('images/rose-bg.jpg');
+
+                                    background-size:cover;
+
+                                    background-position:center;
+
+                                    color:white;
+
+                                    padding:30px 20px;
+
+                                    overflow-y:auto;
+                                "
+                            >
+
+
+                                <h1
+                                    style="
+                                        font-size:
+                                        clamp(38px,8vw,60px);
+
+                                        margin-bottom:20px;
+                                    "
+                                >
+                                    ❤️ I Knew It ❤️
+                                </h1>
+
+
+                                <h2
+                                    style="
+                                        margin-bottom:25px;
+                                    "
+                                >
+                                    🎂 Happy Birthday Madam 🎂
+                                </h2>
+
+
+                                <p
+                                    style="
+                                        max-width:700px;
+
+                                        font-size:
+                                        clamp(17px,4vw,22px);
+
+                                        line-height:1.8;
+                                    "
+                                >
+
+                                    Tomar songe katano sei
+                                    8th August 2026.
+                                    Sei 2 Ghonta amar life er
+                                    sob theke best 2 Ghonta chilo,
+
+                                    <br><br>
+
+                                    Sedin bari aste aste ami
+                                    sudhu hesechi ar vebechi
+                                    I am the most Luckiest
+                                    person in the world,
+
+                                    <br><br>
+
+                                    Ami tomar songe sarata
+                                    jibon katate chaichi.
+                                    Sukh dukkho sob dujon mile
+                                    vag kore nebo.
+
+                                    <br><br>
+
+                                    Just eke oporke chere jabona.
+
+                                    <br><br>
+
+                                    Valobasa ta ami evabei
+                                    bojhate parbo.
+                                    R loyal theke proman kore debo.
+
+                                    <br><br>
+
+                                    And at last but not the least -
+
+                                    <br><br>
+
+                                    Once Again My Beautiful Madam,
+
+                                    <br><br>
+
+                                    Happy Birthday ❤️
+
+                                </p>
+
+
+                            </div>
+
+                        `;
+
+                    };
+
+            });
+
+
+    </script>
+
+
+</body>
+
+</html>
