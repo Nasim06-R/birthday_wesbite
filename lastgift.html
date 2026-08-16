@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>One Last Gift ❤️</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            height: 100%;
+
+        }
+
+
+        body {
+
+            font-family: Georgia, serif;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #351426,
+                    #12050c 70%
+                );
+
+            color: white;
+
+            overflow: hidden;
+
+        }
+
+
+        /* =====================================================
+           🎵 BACKGROUND MUSIC
+        ===================================================== */
+
+        #bgMusic {
+
+            display: none;
+
+        }
+
+
+        /* =====================================================
+           🎵 MUSIC BUTTON
+        ===================================================== */
+
+        #musicBtn {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            z-index: 9999;
+
+            border: none;
+
+            border-radius: 25px;
+
+            padding: 10px 16px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .92
+                );
+
+            color: #d6336c;
+
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 3px 10px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .3
+                );
+
+            transition: .2s;
+
+            -webkit-tap-highlight-color:
+                transparent;
+
+        }
+
+
+        #musicBtn:hover {
+
+            transform:
+                scale(1.05);
+
+        }
+
+
+        #musicBtn:active {
+
+            transform:
+                scale(.95);
+
+        }
+
+
+        /* =====================================================
+           ❤️ MAIN CONTAINER
+        ===================================================== */
+
+        .gift-container {
+
+            width: 100%;
+
+            height: 100vh;
+
+            position: relative;
+
+        }
+
+
+        /* =====================================================
+           📸 PHOTO PAGE
+        ===================================================== */
+
+        .page {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding:
+                30px 20px 100px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                scale(.92)
+                translateY(20px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+
+        }
+
+
+        .page.active {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                scale(1)
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           📸 IMAGE
+        ===================================================== */
+
+        .page img {
+
+            width: auto;
+
+            height: auto;
+
+            max-width: 88vw;
+
+            max-height: 68vh;
+
+            object-fit: contain;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 0 35px
+                rgba(
+                    255,
+                    105,
+                    160,
+                    .45
+                );
+
+            animation:
+                photoAppear 1.2s ease;
+
+        }
+
+
+        @keyframes photoAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.85);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ❤️ PAGE NUMBER
+        ===================================================== */
+
+        .page-number {
+
+            margin-top: 18px;
+
+            font-size: 17px;
+
+            opacity: .8;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =====================================================
+           ❤️ FLOATING HEARTS
+        ===================================================== */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -40px;
+
+            font-size: 20px;
+
+            animation:
+                floatHeart 6s linear
+                forwards;
+
+            opacity: .65;
+
+            pointer-events: none;
+
+            z-index: 5;
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(.6);
+
+                opacity: 0;
+
+            }
+
+            20% {
+
+                opacity: .7;
+
+            }
+
+            80% {
+
+                opacity: .7;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-115vh)
+                    scale(1.2);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           🔘 NAVIGATION
+        ===================================================== */
+
+        .navigation {
+
+            position: fixed;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            z-index: 100;
+
+        }
+
+
+        .navigation button {
+
+            border: none;
+
+            border-radius: 30px;
+
+            padding:
+                13px 22px;
+
+            background: white;
+
+            color: #d6336c;
+
+            font-family: Georgia, serif;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 4px 0 #ccc;
+
+            transition: .2s;
+
+            -webkit-tap-highlight-color:
+                transparent;
+
+        }
+
+
+        .navigation button:hover {
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .navigation button:active {
+
+            transform:
+                translateY(2px);
+
+            box-shadow:
+                0 1px 0 #ccc;
+
+        }
+
+
+        .navigation button:disabled {
+
+            opacity: .35;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        .counter {
+
+            min-width: 65px;
+
+            font-size: 16px;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================================
+           🎵 MUSIC MESSAGE
+        ===================================================== */
+
+        #musicMessage {
+
+            position: fixed;
+
+            top: 70px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .55
+                );
+
+            padding:
+                9px 17px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+
+            z-index: 200;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity .5s;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =====================================================
+           📱 MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                padding:
+                    25px 12px 100px;
+
+            }
+
+
+            .page img {
+
+                max-width: 94vw;
+
+                max-height: 67vh;
+
+                border-radius: 12px;
+
+            }
+
+
+            .page-number {
+
+                font-size: 15px;
+
+                margin-top: 14px;
+
+            }
+
+
+            .navigation {
+
+                bottom: 20px;
+
+                gap: 8px;
+
+            }
+
+
+            .navigation button {
+
+                padding:
+                    11px 17px;
+
+                font-size: 14px;
+
+            }
+
+
+            .counter {
+
+                min-width: 50px;
+
+                font-size: 14px;
+
+            }
+
+
+            #musicBtn {
+
+                top: 15px;
+
+                right: 15px;
+
+                padding:
+                    9px 13px;
+
+                font-size: 13px;
+
+            }
+
+
+            #musicMessage {
+
+                top: 58px;
+
+                font-size: 12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         🎵 BACKGROUND MUSIC
+    ===================================================== -->
+
+    <audio
+        id="bgMusic"
+        autoplay
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="music/last-gift.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- =====================================================
+         🎵 MUSIC ON / OFF
+    ===================================================== -->
+
+    <button id="musicBtn">
+
+        🎵 Music On
+
+    </button>
+
+
+    <div id="musicMessage">
+
+        🎵 Our little memory... ❤️
+
+    </div>
+
+
+
+    <!-- =====================================================
+         🎁 GIFT PAGES
+    ===================================================== -->
+
+    <div class="gift-container">
+
+
+        <!-- ================================================
+             📸 PAGE 1
+        ================================================= -->
+
+        <div
+            class="page active"
+            id="page1"
+        >
+
+            <img
+                src="images/lastgift1.jpeg"
+                alt="Our Memory 1"
+            >
+
+            <div class="page-number">
+
+                ❤️ 1 / 3 ❤️
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================
+             📸 PAGE 2
+        ================================================= -->
+
+        <div
+            class="page"
+            id="page2"
+        >
+
+            <img
+                src="images/lastgift2.jpeg"
+                alt="Our Memory 2"
+            >
+
+            <div class="page-number">
+
+                ❤️ 2 / 3 ❤️
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================
+             📸 PAGE 3
+        ================================================= -->
+
+        <div
+            class="page"
+            id="page3"
+        >
+
+            <img
+                src="images/lastgift3.jpeg"
+                alt="Our Memory 3"
+            >
+
+            <div class="page-number">
+
+                ❤️ 3 / 3 ❤️
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         🔘 NAVIGATION
+    ===================================================== -->
+
+    <div class="navigation">
+
+        <button
+            id="prevBtn"
+            onclick="previousPage()"
+        >
+
+            ← Back
+
+        </button>
+
+
+        <div
+            class="counter"
+            id="counter"
+        >
+
+            1 / 3
+
+        </div>
+
+
+        <button
+            id="nextBtn"
+            onclick="nextPage()"
+        >
+
+            Next ❤️
+
+        </button>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =====================================================
+           🎵 MUSIC
+        ===================================================== */
+
+        const music =
+            document.getElementById(
+                "bgMusic"
+            );
+
+
+        const musicBtn =
+            document.getElementById(
+                "musicBtn"
+            );
+
+
+        const musicMessage =
+            document.getElementById(
+                "musicMessage"
+            );
+
+
+        music.volume = 0.7;
+
+
+
+        /* =====================================================
+           🎵 AUTOMATIC MUSIC
+        ===================================================== */
+
+        function startMusic() {
+
+            music.play()
+                .then(
+                    function () {
+
+                        musicBtn.innerHTML =
+                            "🎵 Music On";
+
+                        musicMessage.style.opacity =
+                            "0";
+
+                    }
+                )
+                .catch(
+                    function () {
+
+                        /*
+                         * Some mobile browsers
+                         * block autoplay.
+                         *
+                         * If blocked, the first
+                         * tap anywhere will start it.
+                         */
+
+                        musicBtn.innerHTML =
+                            "🎵 Tap to Play";
+
+                        musicMessage.innerHTML =
+                            "🎵 Tap anywhere for music ❤️";
+
+                        musicMessage.style.opacity =
+                            "1";
+
+                    }
+                );
+
+        }
+
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                startMusic();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           🎵 MUSIC ON / OFF
+        ===================================================== */
+
+        musicBtn.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    music.paused
+                ) {
+
+                    music.play()
+                        .then(
+                            function () {
+
+                                musicBtn.innerHTML =
+                                    "🎵 Music On";
+
+                                musicMessage.style.opacity =
+                                    "0";
+
+                            }
+                        )
+                        .catch(
+                            function () {}
+                        );
+
+                }
+
+                else {
+
+                    music.pause();
+
+                    musicBtn.innerHTML =
+                        "🔇 Music Off";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           🎵 FALLBACK
+           TAP ANYWHERE TO START MUSIC
+        ===================================================== */
+
+        document.addEventListener(
+            "click",
+            function startMusicOnTap() {
+
+                if (
+                    music.paused
+                ) {
+
+                    music.play()
+                        .then(
+                            function () {
+
+                                musicBtn.innerHTML =
+                                    "🎵 Music On";
+
+                                musicMessage.style.opacity =
+                                    "0";
+
+                            }
+                        )
+                        .catch(
+                            function () {}
+                        );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           📸 PAGE SYSTEM
+        ===================================================== */
+
+        let currentPage = 1;
+
+        const totalPages = 3;
+
+
+
+        function showPage(
+            pageNumber
+        ) {
+
+
+            for (
+                let i = 1;
+                i <= totalPages;
+                i++
+            ) {
+
+                const page =
+                    document.getElementById(
+                        "page" + i
+                    );
+
+
+                page.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            const selectedPage =
+                document.getElementById(
+                    "page" + pageNumber
+                );
+
+
+            selectedPage.classList.add(
+                "active"
+            );
+
+
+            document.getElementById(
+                "counter"
+            ).innerText =
+                pageNumber +
+                " / " +
+                totalPages;
+
+
+            document.getElementById(
+                "prevBtn"
+            ).disabled =
+                pageNumber === 1;
+
+
+            document.getElementById(
+                "nextBtn"
+            ).disabled =
+                pageNumber === totalPages;
+
+
+            currentPage =
+                pageNumber;
+
+        }
+
+
+
+        /* =====================================================
+           ➡️ NEXT PAGE
+        ===================================================== */
+
+        function nextPage() {
+
+            if (
+                currentPage <
+                totalPages
+            ) {
+
+                showPage(
+                    currentPage + 1
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           ⬅️ PREVIOUS PAGE
+        ===================================================== */
+
+        function previousPage() {
+
+            if (
+                currentPage >
+                1
+            ) {
+
+                showPage(
+                    currentPage - 1
+                );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           ❤️ FLOATING HEARTS
+        ===================================================== */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "heart";
+
+
+            heart.innerHTML =
+                "❤️";
+
+
+            heart.style.left =
+                Math.random() *
+                100 +
+                "vw";
+
+
+            heart.style.animationDuration =
+                (
+                    4 +
+                    Math.random() *
+                    4
+                ) +
+                "s";
+
+
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() *
+                    20
+                ) +
+                "px";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                function () {
+
+                    heart.remove();
+
+                },
+                8000
+            );
+
+        }
+
+
+        setInterval(
+            createHeart,
+            700
+        );
+
+
+
+        /* =====================================================
+           🚀 INITIAL PAGE
+        ===================================================== */
+
+        showPage(1);
+
+
+    </script>
+
+
+</body>
+
+</html>
