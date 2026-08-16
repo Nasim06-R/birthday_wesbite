@@ -379,7 +379,7 @@ function checkBirthday() {
     */
 
     if (
-        day === 16 &&
+        day === 22 &&
         month === 8
     ) {
 
@@ -414,7 +414,7 @@ function checkBirthday() {
 */
 
 const birthday =
-    new Date(2026, 7, 16);
+    new Date(2026, 7, 22);
 
 
 
